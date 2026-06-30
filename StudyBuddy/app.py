@@ -3,19 +3,16 @@ import sqlite3
 
 app = Flask(__name__)
 
-
 def init_db():
-    conn = sqlite3.connect("database.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS tasks(
-         id INTEGER PRIMARY KEY AUTOINCREMENT,
-         task TEXT
-
-
-)
-""")
+           cursor.execute("""
+           CREATE TABLE IF NOT EXISTS tasks(
+                          id INTEGER PRIMARY KEY AUTOINCREMENT,
+                          task TEXT,
+                          subject TEXT,
+                          due_date TEXT,
+                          status TEXT
+            )
+            """)
 
     conn.commit()
     conn.close()
@@ -79,13 +76,16 @@ def tasks():
 def add_task():
 
     task = request.form["task"]
+    subject = request.form["subject"]
+    due_date = request.form["due_date"]
+    status = request.form["status"]
 
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
 
     cursor.execute(
-        "INSERT INTO tasks(task) VALUES (?)",
-        (task,)
+        "INSERT INTO tasks(task, subject, due_date, status) VALUES (?, ?, ?, ?)",
+        (task, subject, due_date, status)
     )
 
     conn.commit()
