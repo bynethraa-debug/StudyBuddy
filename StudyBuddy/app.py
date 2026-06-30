@@ -4,6 +4,8 @@ import sqlite3
 app = Flask(__name__)
 
 def init_db():
+           conn = sqlite3.connect("database.db")
+           cursor = conn.cursor()
            cursor.execute("""
            CREATE TABLE IF NOT EXISTS tasks(
                           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,8 +16,8 @@ def init_db():
             )
             """)
 
-    conn.commit()
-    conn.close()
+            conn.commit()
+            conn.close()
 
 
 @app.route("/")
