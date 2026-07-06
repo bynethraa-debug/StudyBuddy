@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>{{ chapter["chapter_name"] }}</title>
+
+<style>
+
+body{
+
+    font-family:Georgia, serif;
+    background:#dfeaf8;
+    padding:40px;
+
+}
+
+.back{
+
+    text-decoration:none;
+    color:#173b78;
+    font-weight:bold;
+
+}
+
+h1{
+
+    text-align:center;
+    color:#173b78;
+
+}
+
+.resource{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    margin:20px auto;
+
+    max-width:700px;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+
+}
+
+.resource a{
+
+    text-decoration:none;
+
+    color:#173b78;
+
+    font-size:22px;
+
+}
+
+.empty{
+
+    text-align:center;
+
+    color:gray;
+
+    font-size:20px;
+
+    margin-top:40px;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<a href="/book/{{ book['id'] }}" class="back">
+← Back to Books
+</a>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="sparkle">✦</div>
+
+<h1>
+
+📘 {{ book["book_name"] }}
+
+</h1>
+
+<p>
+
+Choose a chapter to continue studying.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+{% if subject["subject_name"]=="Chemistry" %}
+
+<img src="{{ url_for('static', filename='images/chemistry.png') }}">
+
+{% elif subject["subject_name"]=="Computer Science" %}
+
+<img src="{{ url_for('static', filename='images/computer science.png') }}">
+
+{% elif subject["subject_name"]=="English" %}
+
+<img src="{{ url_for('static', filename='images/english.png') }}">
+
+{% elif subject["subject_name"]=="Maths" %}
+
+<img src="{{ url_for('static', filename='images/maths.jpeg') }}">
+
+{% elif subject["subject_name"]=="Physics" %}
+
+<img src="{{ url_for('static', filename='images/physics.png') }}">
+
+{% endif %}
+
+</div>
+
+<span class="sparkle s1">✦</span>
+<span class="sparkle s2">✧</span>
+<span class="sparkle s3">✦</span>
+
+</section>
+
+<section class="chapters-grid">
+
+
+{{<body>
+
+<a href="javascript:history.back()" class="back">
+← Back
+</a>
+
+<h1>
+
+📂 {{ chapter["chapter_name"] }}
+
+</h1>
+
+
+
+
+{% if resources %}
+
+{% for resource in resources %}
+
+<div class="resource">
+
+<a href="{{ resource['pdf_link'] }}" target="_blank">
+
+   📄 {{ resource["resource_name"] }}
+
+</a>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty">
+
+No resources have been added yet.
+
+</div>
+
+{% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ chapter["chapter_name"] }}</title>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/resources.css') }}">
+
+</head>
+
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+<a href="javascript:history.back()" class="back">
+
+← Back
+
+</a>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="sparkle">
+
+✦
+
+</div>
+
+<h1>
+
+📂 {{ chapter["chapter_name"] }}
+
+</h1>
+
+<p>
+
+Study resources for this chapter.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img
+src="{{ url_for('static', filename='images/materials.png') }}"
+alt="Resources">
+
+</div>
+
+<span class="sparkle s1">✦</span>
+<span class="sparkle s2">✧</span>
+<span class="sparkle s3">✦</span>
+
+</section>
+
+<section class="resources-grid">
+
+{% if resources %}
+
+{% for resource in resources %}
+
+<div class="resource-card">
+
+<div class="tape"></div>
+
+<div class="pdf-icon">
+
+📄
+
+</div>
+
+<div class="resource-info">
+
+<h2>
+
+{{ resource["resource_name"] }}
+
+</h2>
+
+<div class="line"></div>
+
+<p>
+
+Click below to open the resource.
+
+</p>
+
+</div>
+
+<a
+href="{{ resource['pdf_link'] }}"
+target="_blank"
+class="open-btn">
+
+Open PDF →
+
+</a>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty-card">
+
+<h2>
+
+No Resources Yet
+
+</h2>
+
+<p>
+
+Resources will appear here once added.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</section>
+
+<div class="doodle-star star1">✦</div>
+<div class="doodle-star star2">✧</div>
+
+<div class="squiggle left">〰</div>
+<div class="squiggle right">〰</div>
+
+</div>
+
+</body>
+
+
+</html>

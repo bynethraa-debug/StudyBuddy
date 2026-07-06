@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Study Materials</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/materials.css') }}">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<a href="/" class="back-btn">
+← Back to Dashboard
+</a>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="sparkle">✦</div>
+
+<h1>📚 Study Materials</h1>
+
+<p>
+
+Choose a subject to begin your study journey.
+Browse notes, PDFs and resources organised neatly for every subject.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img
+src="{{ url_for('static', filename='images/materials.png') }}"
+alt="Study Materials">
+
+</div>
+
+</section>
+
+<section class="subjects-grid">
+
+{% for subject in subjects %}
+
+<a
+href="/subject/{{ subject['id'] }}"
+class="subject-card">
+
+<div class="tape
+{% if subject['subject_name']=="Computer Science" %}
+pink
+{% elif subject['subject_name']=="English" %}
+purple
+{% elif subject['subject_name']=="Maths" %}
+blue
+{% elif subject['subject_name']=="Physics" %}
+green
+{% endif %}
+"></div>
+
+{% if subject["subject_name"]=="Chemistry" %}
+
+<img
+src="{{ url_for('static', filename='images/chemistry.png') }}">
+
+{% elif subject["subject_name"]=="Computer Science" %}
+
+<img
+src="{{ url_for('static', filename='images/computer science.png') }}">
+
+{% elif subject["subject_name"]=="English" %}
+
+<img
+src="{{ url_for('static', filename='images/english.png') }}">
+
+{% elif subject["subject_name"]=="Maths" %}
+
+<img
+src="{{ url_for('static', filename='images/maths.jpeg') }}">
+
+{% elif subject["subject_name"]=="Physics" %}
+
+<img
+src="{{ url_for('static', filename='images/physics.png') }}">
+
+{% endif %}
+
+<h2>
+
+{{ subject["subject_name"] }}
+
+</h2>
+
+<div class="underline
+{% if subject['subject_name']=="Computer Science" %}
+pink-line
+{% elif subject['subject_name']=="English" %}
+purple-line
+{% elif subject['subject_name']=="Maths" %}
+blue-line
+{% elif subject['subject_name']=="Physics" %}
+green-line
+{% endif %}
+"></div>
+
+</a>
+
+{% endfor %}
+
+</section>
+
+</div>
+
+</body>
+
+</html>

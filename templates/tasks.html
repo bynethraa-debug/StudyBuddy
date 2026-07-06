@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My To-Do List</title>
+
+<style>
+
+
+{body{
+    background:#dfeaf8;
+    font-family:Georgia, serif;
+    margin:0;
+    padding:40px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#102c5f;
+    font-size:60px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#4d648d;
+    font-style:Georgia, serif
+    margin-bottom:40px;
+}
+
+.back{
+    text-decoration:none;
+    color:#102c5f;
+    font-weight:bold;
+    font-size:20px;
+}
+
+form{
+    text-align:center;
+}
+
+input[type="text"]{
+    width:350px;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+}
+
+.add-btn{
+    background:#ffb6c1;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:15px;
+    font-size:18px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.add-btn:hover{
+    background:#ff9eb0;
+}
+
+.task-box{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin-top:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.task-name{
+    color:#102c5f;
+    font-size:24px;
+}
+
+.delete-btn{
+    background:#ff8c8c;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:#ff6f6f;
+}
+.task-form{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.task-form input,
+.task-form select{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+.task-form button{
+    width:100%;
+    padding:12px;
+    background:#2e8b57;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.task-form button:hover{
+    background:#256d46;
+}
+
+.completed{
+    background:#d4edda;
+}
+
+.pending{
+    background:#f8d7da;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/" class="back"> ⊹ ࣪ ˖ ➤ Back to Dashboard</a>
+
+<h1> 🏆 My To-do list: 🏆 </h1>
+
+<p class="subtitle">
+‧₊˚✩ ₊˚📝  Work hard today, so you can be proud tomorrow. ‧₊˚✩ ₊˚📝
+</p>
+
+<form action="/add_task" method="POST" class="task-form">
+
+    <label>📝 Task</label>
+    <input type="text"
+           name="task"
+           placeholder="Enter your task"
+           required>
+
+    <label>📚 Subject</label>
+    <select name="subject" required>
+        <option value="">Select Subject</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+        <option>Mathematics</option>
+        <option>English</option>
+        <option>Computer Science</option>
+    </select>
+
+    <label>📅 Due Date</label>
+    <input type="date"
+           name="due_date"
+           required>
+
+    <label>📌 Status</label>
+    <select name="status" required>
+        <option value="Pending">🔴 Pending</option>
+        <option value="Completed">🟢 Completed</option>
+    </select>
+
+    <button type="submit" class="add-btn">
+        ➕ Add Task
+    </button>
+
+</form>
+
+{% for task in tasks %}
+
+<div class="task-box {% if task[4] == 'Completed' %}completed{% else %}pending{% endif %}">
+
+    <div>
+
+        <div class="task-name">
+            📝 {{ task[1] }}
+        </div>
+
+        <p><b>📚 Subject:</b> {{ task[2] }}</p>
+
+        <p><b>📅 Due Date:</b> {{ task[3] }}</p>
+
+        <p><b>Status:</b> {{ task[4] }}</p>
+
+    </div>
+
+    <form action="/delete_task/{{ task[0] }}" method="POST">
+        <button class="delete-btn">
+            🗑 Delete
+        </button>
+    </form>
+
+</div>
+
+{% endfor %}
+
+
+</div>
+
+</body>
+</html>

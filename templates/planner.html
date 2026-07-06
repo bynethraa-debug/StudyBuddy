@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>StudyBuddy Planner</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/planner.css') }}">
+
+</head>
+
+<body>
+
+<div class="planner-wrapper">
+
+<!-- =======================
+        SIDEBAR
+======================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+✦ StudyBuddy
+
+</div>
+
+<nav>
+
+<a href="/">
+
+🏠 Dashboard
+
+</a>
+
+<a
+href="/planner"
+class="active">
+
+📅 Planner
+
+</a>
+
+<a href="/materials">
+
+📚 Study Materials
+
+</a>
+
+</nav>
+
+<div class="sidebar-image">
+
+<img
+src="{{ url_for('static',
+filename='images/flowers.png') }}"
+alt="Lilies">
+
+</div>
+
+<div class="sidebar-sparkle sparkle1">
+
+✦
+
+</div>
+
+<div class="sidebar-sparkle sparkle2">
+
+✧
+
+</div>
+
+<div class="sidebar-squiggle">
+
+〰
+
+</div>
+
+</aside>
+
+<!-- =======================
+        MAIN
+======================= -->
+
+<main class="main">
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="hero-tape"></div>
+
+<h1>
+
+Weekly Planner
+
+</h1>
+
+<p>
+
+Plan beautifully.
+Study consistently.
+Achieve your goals.
+
+</p>
+
+<div class="hero-doodles">
+
+<span>✦</span>
+
+<span>✧</span>
+
+<span>✦</span>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+<img
+src="{{ url_for('static', filename='images/porpleh.png') }}"
+class="star-sticker">
+
+<div class="info-card">
+
+<div class="info-icon">
+
+📅
+
+</div>
+
+<div>
+
+<small>
+
+Today's Date
+
+</small>
+
+<h3 id="date"></h3>
+
+</div>
+
+</div>
+
+<div class="info-card">
+
+<div class="info-icon">
+
+🕒
+
+</div>
+
+<div>
+
+<small>
+
+Current Time
+
+</small>
+
+<h3 id="clock"></h3>
+
+</div>
+
+</div>
+
+<img
+class="hero-collage"
+src="{{ url_for('static',
+filename='cat.jpeg') }}"
+alt="Planner">
+
+</div>
+
+</section>
+
+<section class="planner-grid">
+
+<div class="left-column">
+<!-- =======================
+      TODAY'S FOCUS
+======================= -->
+
+<div class="today-card">
+
+<div class="card-tape yellow"></div>
+
+<h2>
+
+Today's Focus
+
+</h2>
+
+<div class="focus-item">
+
+<div class="focus-icon">
+
+📋
+
+</div>
+
+<div>
+
+<h3>
+
+{{ planner_tasks|length }}
+
+</h3>
+
+<p>
+
+Tasks Planned
+
+</p>
+
+</div>
+
+</div>
+
+<div class="focus-item">
+
+<div class="focus-icon">
+
+✅
+
+</div>
+
+<div>
+
+<h3>
+
+{{ completed_tasks }}
+
+</h3>
+
+<p>
+
+Completed
+
+</p>
+
+</div>
+
+</div>
+
+<div class="focus-item">
+
+<div class="focus-icon">
+
+⏱
+
+</div>
+
+<div>
+
+<h3>
+
+{{ study_hours }}
+
+</h3>
+
+<p>
+
+Study Hours
+
+</p>
+
+</div>
+
+</div>
+
+<div class="goal-bar">
+
+<div
+class="goal-fill"
+style="width: {{ weekly_goal }}%;" >
+
+</div>
+
+</div>
+
+<p class="goal-text">
+
+{{ weekly_goal }}% Weekly Goal
+
+</p>
+
+</div>
+
+<!-- =======================
+      WEEKLY PLANNER
+======================= -->
+
+<div class="planner-panel">
+
+<div class="card-tape purple"></div>
+
+<div class="panel-header">
+
+<h2>
+
+Weekly Planner
+
+</h2>
+
+<div class="panel-doodles">
+
+✦ ✧ ✦
+
+</div>
+
+</div>
+
+<div class="week-grid">
+
+{% for day in ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] %}
+
+<div class="day-card">
+
+<div class="day-top">
+
+<h3>
+
+{{ day }}
+
+</h3>
+
+<div class="mini-pin"></div>
+
+</div>
+
+{% if tasks_by_day[day] %}
+
+{% for task in tasks_by_day[day] %}
+
+<div class="sticky-task">
+
+<div class="sticky-tape"></div>
+
+<h4>
+
+{{ task["task"] }}
+
+</h4>
+
+<p>
+
+{{ task["subject"] }}
+
+</p>
+
+{% if task["priority"]=="High" %}
+
+<span class="priority high">
+
+High
+
+</span>
+
+{% elif task["priority"]=="Medium" %}
+
+<span class="priority medium">
+
+Medium
+
+</span>
+
+{% else %}
+
+<span class="priority low">
+
+Low
+
+</span>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty-note">
+
+✨
+
+<p>
+
+Nothing planned
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+<!-- =======================
+      PLANNER TASKS
+======================= -->
+
+<div class="planner-panel">
+
+<div class="card-tape blue"></div>
+
+<div class="panel-header">
+
+<h2>
+
+Planner Tasks
+
+</h2>
+
+<div class="panel-doodles">
+
+📎 ✦
+
+</div>
+
+</div>
+
+{% if planner_tasks %}
+
+<div class="task-list">
+
+{% for task in planner_tasks %}
+
+<div class="task-card">
+
+<div class="task-tape"></div>
+
+<div class="task-left">
+
+<h3>
+
+{{ task["task"] }}
+
+</h3>
+
+<p>
+
+📚 {{ task["subject"] }}
+
+</p>
+
+<p>
+
+📅 {{ task["due_date"] }}
+
+</p>
+
+</div>
+
+<div class="task-right">
+
+{% if task["priority"]=="High" %}
+
+<span class="priority high">
+
+High
+
+</span>
+
+{% elif task["priority"]=="Medium" %}
+
+<span class="priority medium">
+
+Medium
+
+</span>
+
+{% else %}
+
+<span class="priority low">
+
+Low
+
+</span>
+
+{% endif %}
+
+<div class="task-actions">
+
+<a
+href="/edit_planner_task/{{ task['id'] }}"
+class="edit-btn">
+
+✏️
+
+</a>
+
+<form
+action="/delete_planner_task/{{ task['id'] }}"
+method="POST"
+style="display:inline;">
+
+<button
+type="submit"
+class="delete-btn"
+onclick="return confirm('Delete this task?')">
+
+🗑️
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty-note">
+
+✨
+
+<p>
+
+No planner tasks yet.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+<!-- =======================
+      RIGHT COLUMN
+======================= -->
+
+<div class="right-column">
+<!-- =======================
+      UPCOMING TASKS
+======================= -->
+
+<div class="planner-panel">
+
+<div class="card-tape pink"></div>
+
+<div class="panel-header">
+
+<h2>
+
+Upcoming Tasks
+
+</h2>
+
+<div class="panel-doodles">
+
+✦ ✧
+
+</div>
+
+</div>
+
+{% if planner_tasks %}
+
+{% for task in planner_tasks[:4] %}
+
+<div class="upcoming-card">
+
+<div class="upcoming-left">
+
+<div class="upcoming-icon">
+
+📌
+
+</div>
+
+<div>
+
+<h4>
+
+{{ task["task"] }}
+
+</h4>
+
+<p>
+
+{{ task["subject"] }}
+
+</p>
+
+</div>
+
+</div>
+
+<span class="due-date">
+
+{{ task["due_date"] }}
+
+</span>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty-note">
+
+✨
+
+<p>
+
+Nothing coming up.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<!-- =======================
+      MOTIVATION
+======================= -->
+
+<div class="quote-card">
+
+<div class="card-tape purple"></div>
+
+<div class="quote-stars">
+
+✦ ✧ ✦
+
+</div>
+
+<p>
+
+"Success is built one study session at a time."
+
+</p>
+
+<span>
+
+— StudyBuddy
+
+</span>
+
+</div>
+
+<!-- =======================
+      ADD TASK
+======================= -->
+
+<div class="planner-panel">
+
+<div class="card-tape yellow"></div>
+
+<div class="panel-header">
+
+<h2>
+
+Add Task
+
+</h2>
+
+<div class="panel-doodles">
+
+➕
+
+</div>
+
+</div>
+
+<form
+action="/add_planner_task"
+method="POST"
+class="task-form">
+
+<label>
+
+✏️ Task
+
+</label>
+
+<input
+type="text"
+name="task"
+placeholder="Complete Electrostatics"
+required>
+
+<label>
+
+📚 Subject
+
+</label>
+
+<select name="subject">
+
+<option>Maths</option>
+
+<option>Physics</option>
+
+<option>Chemistry</option>
+
+<option>English</option>
+
+<option>Computer Science</option>
+
+</select>
+
+<label>
+
+📌 Priority
+
+</label>
+
+<select name="priority">
+
+<option>High</option>
+
+<option>Medium</option>
+
+<option>Low</option>
+
+</select>
+
+<label>
+
+📅 Due Date
+
+</label>
+
+<input
+type="date"
+name="due_date"
+required>
+
+<button
+type="submit">
+
+✨ Add Task
+
+</button>
+
+</form>
+
+</div>
+<!-- =======================
+      TODAY'S SCHEDULE
+======================= -->
+
+<div class="planner-panel">
+
+<div class="card-tape blue"></div>
+
+<div class="panel-header">
+
+<h2>
+
+Today's Schedule
+
+</h2>
+
+<div class="panel-doodles">
+
+⏰
+
+</div>
+
+</div>
+
+{% if time_blocks %}
+
+{% for block in time_blocks %}
+
+<div class="time-card">
+
+<div class="time-left">
+
+<div class="time-icon">
+
+🕒
+
+</div>
+
+<div>
+
+<h4>
+
+{{ block["title"] }}
+
+</h4>
+
+<p>
+
+{{ block["day"] }}
+
+</p>
+
+</div>
+
+</div>
+
+<div class="time-range">
+
+{{ block["start_time"] }}
+
+—
+
+{{ block["end_time"] }}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty-note">
+
+✨
+
+<p>
+
+No time blocks yet.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script>
+
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").textContent =
+now.toLocaleTimeString([],{
+
+hour:"2-digit",
+
+minute:"2-digit",
+
+second:"2-digit"
+
+});
+
+document.getElementById("date").textContent =
+now.toLocaleDateString([],{
+
+weekday:"long",
+
+month:"long",
+
+day:"numeric",
+
+year:"numeric"
+
+});
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+</script>
+
+</body>
+
+</html>

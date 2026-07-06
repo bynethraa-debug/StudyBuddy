@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ subject["subject_name"] }}</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/books.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/materials" class="back">
+← Back
+</a>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="sparkle">✦</div>
+
+<h1>
+📚 {{ subject["subject_name"] }}
+</h1>
+
+<p>
+Choose a book to continue your learning journey.
+Browse chapters, notes and resources organised neatly.
+</p>
+
+</div>
+
+<div class="hero-image">
+
+{% if subject["subject_name"]=="Chemistry" %}
+
+<img src="{{ url_for('static', filename='images/chemistry.png') }}">
+
+{% elif subject["subject_name"]=="Computer Science" %}
+
+<img src="{{ url_for('static', filename='images/computer science.png') }}">
+
+{% elif subject["subject_name"]=="English" %}
+
+<img src="{{ url_for('static', filename='images/english.png') }}">
+
+{% elif subject["subject_name"]=="Maths" %}
+
+<img src="{{ url_for('static', filename='images/maths.jpeg') }}">
+
+{% elif subject["subject_name"]=="Physics" %}
+
+<img src="{{ url_for('static', filename='images/physics.png') }}">
+
+{% endif %}
+
+</div>
+
+<span class="sparkle s1">✦</span>
+<span class="sparkle s2">✧</span>
+<span class="sparkle s3">✦</span>
+
+</section>
+
+<section class="books-grid">
+
+{% if books %}
+
+{% for book in books %}
+
+<a
+href="/book/{{ book['id'] }}"
+class="book-card">
+
+<div class="book-icon">
+
+{% if subject["subject_name"]=="Chemistry" %}
+
+<img src="{{ url_for('static', filename='images/chemistry.png') }}">
+
+{% elif subject["subject_name"]=="Computer Science" %}
+
+<img src="{{ url_for('static', filename='images/computer science.png') }}">
+
+{% elif subject["subject_name"]=="English" %}
+
+<img src="{{ url_for('static', filename='images/english.png') }}">
+
+{% elif subject["subject_name"]=="Maths" %}
+
+<img src="{{ url_for('static', filename='images/maths.jpeg') }}">
+
+{% elif subject["subject_name"]=="Physics" %}
+
+<img src="{{ url_for('static', filename='images/physics.png') }}">
+
+{% endif %}
+
+</div>
+
+<div class="book-info">
+
+<h2>
+
+{{ book["book_name"] }}
+
+</h2>
+
+<div class="line"></div>
+
+<p>
+
+Click to open this book and explore all chapters, notes and study resources.
+
+</p>
+
+</div>
+
+<div class="arrow">
+
+➜
+
+</div>
+
+</a>
+
+{% endfor %}
+
+{% else %}
+
+<div class="book-card">
+
+<div class="book-info">
+
+<h2>No Books Found</h2>
+
+<p>
+
+There are currently no books available for this subject.
+
+</p>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</section>
+
+<div class="doodle-star star1">✦</div>
+<div class="doodle-star star2">✧</div>
+
+<div class="squiggle left">〰</div>
+<div class="squiggle right">〰</div>
+
+</div>
+
+</body>
+</html>

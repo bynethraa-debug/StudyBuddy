@@ -1,0 +1,2155 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:"Outfit",sans-serif;
+    background:
+    linear-gradient(
+    180deg,
+    #F8F5FF 0%,
+    #F2EEFF 45%,
+    #ECE7FF 100%);
+
+
+    color:#1f2140;
+
+}
+
+.dashboard{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    padding:35px 45px 60px;
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    background:linear-gradient(
+    135deg,
+    #f7f3ff,
+    #efe8ff);
+
+    border:1px solid #e3d8ff;
+
+    border-radius:35px;
+
+    padding:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    box-shadow:
+
+    0 12px 35px rgba(130,90,255,.10);
+
+}
+
+.hero-left{
+
+    flex:1;
+
+}
+
+.sparkle{
+
+    font-size:48px;
+
+    color:#8d5cf6;
+
+    margin-bottom:15px;
+
+}
+
+.hero h1{
+
+    font-size:74px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    color:#1f2140;
+
+}
+
+.hero h1 span{
+
+    color:#7658ff;
+
+}
+
+.hero p{
+
+    margin-top:55px;
+
+    max-width:560px;
+
+    font-size:24px;
+
+    line-height:1.7;
+
+    color:#555b7c;
+
+}
+
+.hero-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:35px;
+
+    background:white;
+
+    color:#7658ff;
+
+    padding:18px 30px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    box-shadow:
+
+    0 10px 20px rgba(118,88,255,.15);
+
+    transition:.3s;
+
+}
+
+.hero-button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.hero-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-right img{
+
+    width:100%;
+
+    max-width:520px;
+
+    object-fit:contain;
+
+}
+
+/* ===========================
+   FEATURE GRID
+=========================== */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:32px;
+
+    margin-top:55px;
+
+}
+/* ===========================
+   FEATURE CARDS
+=========================== */
+
+.feature-card{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:28px;
+
+    text-decoration:none;
+
+    color:#1f2140;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 25px rgba(120,110,220,.12);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 40px rgba(120,110,220,.18);
+
+}
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    top:-90px;
+
+    right:-90px;
+
+    opacity:.18;
+
+}
+
+.materials::before{
+
+    background:#FFE4B5;
+
+}
+
+.planner::before{
+
+    background:#FFD8EC;
+
+}
+
+.timer::before{
+
+    background:#D9F4FF;
+
+}
+
+.progress::before{
+
+    background:#E7E0FF;
+
+}
+
+.feature-card img{
+
+    width:140px;
+
+    height:140px;
+
+    object-fit:contain;
+
+    margin-bottom:18px;
+
+    transition:.3s;
+
+}
+
+.feature-card:hover img{
+
+    transform:scale(1.08) rotate(-2deg);
+
+}
+
+.feature-card h2{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+.feature-card p{
+
+    color:#6f7696;
+
+    line-height:1.7;
+
+    min-height:70px;
+
+}
+
+.open-btn{
+
+    margin-top:22px;
+
+    background:#8d5cf6;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   PROGRESS
+=========================== */
+
+.progress-preview{
+
+    width:100%;
+
+    margin-top:18px;
+
+}
+
+.progress-bar{
+
+    height:12px;
+
+    background:#ece9ff;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:72%;
+
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    #8d5cf6,
+    #b18dff);
+
+    border-radius:999px;
+
+}
+
+.progress-preview span{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#8d5cf6;
+
+    font-weight:700;
+
+}
+
+/* ===========================
+   MOTIVATION
+=========================== */
+
+.motivation{
+
+    margin-top:55px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:55px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:50px;
+
+    box-shadow:
+    0 10px 25px rgba(120,110,220,.10);
+
+}
+
+.quote-section{
+
+    flex:1;
+
+}
+
+.quote-icon{
+
+    font-size:34px;
+
+    color:#8d5cf6;
+
+    margin-bottom:15px;
+
+}
+
+.quote-section h2{
+
+    font-size:50px;
+
+    line-height:1.2;
+
+}
+
+.quote-section h2 span{
+
+    color:#8d5cf6;
+
+}
+
+.quote-section p{
+
+    margin-top:20px;
+
+    color:#676d8d;
+
+    line-height:1.8;
+
+    font-size:20px;
+
+}
+
+.quote-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.quote-image img{
+
+    width:100%;
+
+    max-width:380px;
+
+    border-radius:24px;
+
+    object-fit:cover;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1200px){
+
+    .features{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .hero,
+    .motivation{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard{
+
+        padding:20px;
+
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero h1{
+
+        font-size:52px;
+
+    }
+
+    .quote-section h2{
+
+        font-size:38px;
+
+    }
+
+}
+/* ===========================
+   CUTE DECORATIONS
+=========================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+}
+
+/* Floating stars */
+
+.hero::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    top:30px;
+    right:90px;
+
+    font-size:34px;
+
+    color:#ffe45b;
+
+    animation:floatStar 4s ease-in-out infinite;
+
+}
+
+.hero::after{
+
+    content:"✧";
+
+    position:absolute;
+
+    bottom:80px;
+    left:52%;
+
+    font-size:30px;
+
+    color:#9b72ff;
+
+    animation:floatStar 5s ease-in-out infinite;
+
+}
+
+/* Notebook note */
+
+.hero-right{
+
+    position:relative;
+
+}
+
+.hero-right::before{
+
+    content:"You've\A got this!";
+
+    white-space:pre;
+
+    position:absolute;
+
+    top:20px;
+    right:-15px;
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#8d5cf6;
+
+    transform:rotate(6deg);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/* Tape */
+
+.hero-right::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:85px;
+
+    height:22px;
+
+    background:#cab5ff;
+
+    opacity:.7;
+
+    top:8px;
+
+    right:35px;
+
+    transform:rotate(8deg);
+
+}
+
+/* Sparkles around gem */
+
+.hero-right img{
+
+    filter:
+    drop-shadow(0 0 18px rgba(180,120,255,.45));
+
+    animation:
+    glow 3s ease-in-out infinite;
+
+}
+
+/* Decorative stars */
+
+.feature-card::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    bottom:18px;
+
+    right:20px;
+
+    color:#a277ff;
+
+    opacity:.7;
+
+    font-size:24px;
+
+}
+
+.materials::after{
+
+    color:#ffca4d;
+
+}
+
+.timer::after{
+
+    color:#74a7ff;
+
+}
+
+.progress::after{
+
+    color:#be8cff;
+
+}
+
+/* Tiny sparkle top left */
+
+.feature-card h2::before{
+
+    content:"✧";
+
+    color:#ffb938;
+
+    margin-right:8px;
+
+}
+
+/* Grid paper effect */
+
+.feature-card{
+
+    background-image:
+
+    linear-gradient(
+
+    rgba(255,255,255,.75),
+
+    rgba(255,255,255,.75)
+
+    ),
+
+    linear-gradient(
+
+    rgba(235,235,255,.18) 1px,
+
+    transparent 1px
+
+    ),
+
+    linear-gradient(
+
+    90deg,
+
+    rgba(235,235,255,.18) 1px,
+
+    transparent 1px
+
+    );
+
+    background-size:
+
+    auto,
+
+    24px 24px,
+
+    24px 24px;
+
+}
+
+/* Floating sparkles */
+
+.sparkle{
+
+    animation:
+    sparkle 2.4s infinite;
+
+}
+
+@keyframes sparkle{
+
+0%{
+
+transform:scale(1) rotate(0deg);
+
+}
+
+50%{
+
+transform:scale(1.3) rotate(15deg);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes glow{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes floatStar{
+
+0%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+opacity:.6;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+}
+-- NEW FEATURES --
+/* ===========================
+   EXTRA CUTE DECORATIONS
+=========================== */
+
+/* Make hero relative */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+}
+
+/* Floating stars */
+
+body::before{
+    content:"✦ ✧ ✦ ✧";
+    position:fixed;
+    top:40px;
+    left:40px;
+    font-size:22px;
+    letter-spacing:90px;
+    color:#ffca43;
+    opacity:.8;
+    pointer-events:none;
+    animation:twinkle 4s infinite;
+    z-index:999;
+}
+
+body::after{
+    content:"✦";
+    position:fixed;
+    bottom:80px;
+    right:80px;
+    font-size:42px;
+    color:#8d5cf6;
+    opacity:.8;
+    pointer-events:none;
+    animation:floatStar 6s infinite;
+    z-index:999;
+}
+
+/* Sparkles beside logo */
+
+.sparkle{
+    position:relative;
+}
+
+.sparkle::before{
+    content:"✧";
+    position:absolute;
+    top:-12px;
+    left:-28px;
+    font-size:18px;
+    color:#ffd95c;
+}
+
+.sparkle::after{
+    content:"✦";
+    position:absolute;
+    bottom:-8px;
+    right:-22px;
+    font-size:16px;
+    color:#ff8ec8;
+}
+
+/* ===========================
+   WASHI TAPE
+=========================== */
+
+.feature-card{
+    position:relative;
+}
+
+.feature-card::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:22px;
+    width:70px;
+    height:18px;
+    background:#d9c6ff;
+    opacity:.7;
+    transform:rotate(-18deg);
+    border-radius:3px;
+}
+
+/* ===========================
+   PASTEL BLOBS
+=========================== */
+
+.materials{
+    background-image:
+    radial-gradient(circle at 18% 15%,#fff5d9 0 24%,transparent 25%);
+}
+
+.planner{
+    background-image:
+    radial-gradient(circle at 82% 18%,#ffe5f5 0 22%,transparent 23%);
+}
+
+.timer{
+    background-image:
+    radial-gradient(circle at 82% 18%,#e8f5ff 0 22%,transparent 23%);
+}
+
+.progress{
+    background-image:
+    radial-gradient(circle at 82% 18%,#efe5ff 0 22%,transparent 23%);
+}
+
+/* ===========================
+   SCRIBBLE ARROWS
+=========================== */
+
+.hero-left{
+    position:relative;
+}
+
+.hero-left::before{
+    content:"↺";
+    position:absolute;
+    left:-45px;
+    top:120px;
+    font-size:42px;
+    color:#a97fff;
+    transform:rotate(-25deg);
+    opacity:.45;
+}
+
+.hero-left::after{
+    content:"↝";
+    position:absolute;
+    right:60px;
+    bottom:15px;
+    font-size:40px;
+    color:#ff93cf;
+    opacity:.6;
+}
+
+/* ===========================
+   PLANNER UNDERLINE
+=========================== */
+
+.planner h2{
+    position:relative;
+    display:inline-block;
+}
+
+.planner h2::after{
+    content:"";
+    position:absolute;
+    left:10px;
+    bottom:-6px;
+    width:70%;
+    height:7px;
+    background:#ff8dc7;
+    border-radius:999px;
+    transform:rotate(-2deg);
+}
+
+/* ===========================
+   TIMER MOON
+=========================== */
+
+.timer h2::after{
+    content:" ☾";
+    color:#7c8cff;
+}
+
+/* ===========================
+   GEM GLOW
+=========================== */
+
+.hero-right img{
+    filter:
+        drop-shadow(0 0 20px rgba(177,132,255,.45));
+    animation:gemFloat 4s ease-in-out infinite;
+}
+
+/* ===========================
+   NOTE CARD
+=========================== */
+
+.hero-right::before{
+    content:"You've\A got this!";
+    white-space:pre;
+    position:absolute;
+    top:15px;
+    right:-10px;
+    background:white;
+    padding:18px;
+    border-radius:14px;
+    color:#8d5cf6;
+    font-weight:700;
+    font-size:18px;
+    transform:rotate(7deg);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+    border:1px solid #efe7ff;
+}
+
+.hero-right::after{
+    content:"";
+    position:absolute;
+    top:3px;
+    right:35px;
+    width:80px;
+    height:20px;
+    background:#cab5ff;
+    opacity:.7;
+    transform:rotate(8deg);
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes gemFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes floatStar{
+
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    50%{
+        transform:translateY(-12px);
+        opacity:.6;
+    }
+
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+@keyframes twinkle{
+
+    0%{
+        opacity:.4;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.4;
+    }
+
+}
+/* ===========================================
+        AESTHETIC UPGRADE
+=========================================== */
+
+/* Floating animation */
+
+@keyframes floating{
+
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(-10px) rotate(2deg);
+}
+
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+
+}
+
+/* Glitter */
+
+@keyframes glitter{
+
+0%,100%{
+
+opacity:.25;
+
+transform:scale(.8);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.2);
+
+}
+
+}
+
+/* ---------------- Hero sparkles ---------------- */
+
+.hero::before{
+
+content:"✦";
+
+position:absolute;
+
+left:70px;
+
+top:45px;
+
+font-size:34px;
+
+color:#ffd84f;
+
+animation:glitter 2s infinite;
+
+}
+
+.hero::after{
+
+content:"✧";
+
+position:absolute;
+
+right:120px;
+
+bottom:60px;
+
+font-size:28px;
+
+color:#8b67ff;
+
+animation:glitter 3s infinite;
+
+}
+
+/* Extra sparkles */
+
+.hero-right{
+
+position:relative;
+
+animation:floating 5s ease-in-out infinite;
+
+}
+
+.hero-right span{
+
+display:none;
+
+}
+
+.hero-right::after{
+
+content:"✦   ✧   ✦";
+
+position:absolute;
+
+top:15%;
+
+left:-60px;
+
+font-size:26px;
+
+letter-spacing:35px;
+
+color:#ffd54f;
+
+animation:glitter 2.5s infinite;
+
+}
+
+/* ---------------- Torn Paper ---------------- */
+
+.feature-card{
+
+position:relative;
+
+border-radius:22px;
+
+background:#fffdfd;
+
+clip-path:polygon(
+0 0,
+100% 0,
+100% 97%,
+96% 99%,
+91% 97%,
+86% 100%,
+80% 97%,
+73% 99%,
+65% 97%,
+58% 100%,
+49% 97%,
+41% 100%,
+34% 97%,
+25% 100%,
+16% 97%,
+8% 99%,
+0 97%
+);
+
+}
+
+/* Notebook texture */
+
+.feature-card{
+
+background-image:
+
+linear-gradient(
+
+rgba(255,255,255,.92),
+
+rgba(255,255,255,.92)
+
+),
+
+linear-gradient(
+
+transparent 95%,
+
+rgba(235,230,255,.55) 95%
+
+);
+
+background-size:
+
+100%,
+
+100% 28px;
+
+}
+
+/* ---------------- Washi Tape ---------------- */
+
+.feature-card::before{
+
+content:"";
+
+position:absolute;
+
+width:90px;
+
+height:22px;
+
+top:-10px;
+
+left:22px;
+
+border-radius:4px;
+
+opacity:.8;
+
+transform:rotate(-15deg);
+
+}
+
+.materials::before{
+
+background:#ffd980;
+
+}
+
+.planner::before{
+
+background:#ffc7e7;
+
+}
+
+.timer::before{
+
+background:#bfe5ff;
+
+}
+
+.progress::before{
+
+background:#d7bcff;
+
+}
+
+/* ---------------- Hover Sticker ---------------- */
+
+.feature-card::after{
+
+content:"⭐";
+
+position:absolute;
+
+right:18px;
+
+bottom:16px;
+
+font-size:28px;
+
+opacity:0;
+
+transform:scale(.2) rotate(-30deg);
+
+transition:.35s;
+
+}
+
+.feature-card:hover::after{
+
+opacity:1;
+
+transform:scale(1) rotate(0deg);
+
+}
+
+/* ---------------- Floating Cards ---------------- */
+
+.feature-card{
+
+animation:floating 7s ease-in-out infinite;
+
+}
+
+.feature-card:nth-child(2){
+
+animation-delay:.5s;
+
+}
+
+.feature-card:nth-child(3){
+
+animation-delay:1s;
+
+}
+
+.feature-card:nth-child(4){
+
+animation-delay:1.5s;
+
+}
+
+/* ---------------- Image Hover ---------------- */
+
+.feature-card img{
+
+transition:.35s;
+
+}
+
+.feature-card:hover img{
+
+transform:
+
+translateY(-8px)
+
+rotate(-4deg)
+
+scale(1.08);
+
+filter:
+
+drop-shadow(0 8px 12px rgba(0,0,0,.12));
+
+}
+
+/* ---------------- Cute Underlines ---------------- */
+
+.materials h2::after,
+.progress h2::after{
+
+content:"";
+
+display:block;
+
+width:70px;
+
+height:6px;
+
+background:#ffd45a;
+
+border-radius:20px;
+
+margin:6px auto 0;
+
+transform:rotate(-2deg);
+
+}
+
+.timer h2::after{
+
+content:" ☾";
+
+color:#81a8ff;
+
+font-size:22px;
+
+}
+
+/* ---------------- Footer Sparkles ---------------- */
+
+.motivation{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.motivation::before{
+
+content:"✦";
+
+position:absolute;
+
+left:50px;
+
+top:30px;
+
+font-size:26px;
+
+color:#ffca4b;
+
+animation:glitter 2s infinite;
+
+}
+
+.motivation::after{
+
+content:"✧";
+
+position:absolute;
+
+right:55px;
+
+bottom:35px;
+
+font-size:24px;
+
+color:#9d7eff;
+
+animation:glitter 3s infinite;
+
+}
+/* ==========================================
+   DRIBBBLE UPGRADE — PART 1A
+========================================== */
+
+/* Hero decorations */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+}
+
+/* Decorative stars */
+
+.hero .star1,
+.hero .star2,
+.hero .star3{
+    position:absolute;
+    pointer-events:none;
+}
+
+.hero::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:45px;
+    top:35px;
+
+    font-size:28px;
+
+    color:#FFD447;
+
+    animation:twinkle 2s infinite;
+
+}
+
+.hero::after{
+
+    content:"✧";
+
+    position:absolute;
+
+    right:80px;
+    bottom:45px;
+
+    font-size:24px;
+
+    color:#8B63FF;
+
+    animation:twinkle 3s infinite;
+
+}
+
+/* Notebook paper texture */
+
+.feature-card{
+
+    position:relative;
+
+    background:
+    linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),
+    repeating-linear-gradient(
+        transparent,
+        transparent 26px,
+        rgba(227,220,255,.45) 27px
+    );
+
+}
+
+/* Better rounded cards */
+
+.feature-card{
+
+    border-radius:28px;
+
+    border:2px solid #efe8ff;
+
+}
+
+/* Realistic tape */
+
+.feature-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-10px;
+
+left:22px;
+
+width:82px;
+
+height:18px;
+
+background:
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.25),
+rgba(255,255,255,.05));
+
+backdrop-filter:blur(4px);
+
+border:1px solid rgba(255,255,255,.3);
+
+opacity:.95;
+
+transform:rotate(-13deg);
+
+border-radius:4px;
+
+}
+
+/* Different tape colours */
+
+.materials::before{
+
+background:#FFDFA0;
+
+}
+
+.planner::before{
+
+background:#FFD0EC;
+
+}
+
+.timer::before{
+
+background:#CFEAFF;
+
+}
+
+.progress::before{
+
+background:#DCC8FF;
+
+}
+
+/* Tiny glitter */
+
+.feature-card::after{
+
+content:"✦";
+
+position:absolute;
+
+right:18px;
+
+top:18px;
+
+font-size:18px;
+
+color:#FFD447;
+
+opacity:.65;
+
+animation:twinkle 2.8s infinite;
+
+}
+
+/* Bigger images */
+
+.feature-card img{
+
+width:150px;
+
+height:150px;
+
+transition:.35s;
+
+}
+
+/* Floating image only */
+
+.feature-card:hover img{
+
+transform:
+translateY(-10px)
+rotate(-3deg)
+scale(1.05);
+
+}
+
+/* Cute underline */
+
+.feature-card h2{
+
+position:relative;
+
+display:inline-block;
+
+}
+
+.feature-card h2::after{
+
+content:"";
+
+position:absolute;
+
+left:15%;
+
+bottom:-8px;
+
+width:70%;
+
+height:6px;
+
+border-radius:999px;
+
+background:#D8C4FF;
+
+}
+
+.materials h2::after{
+
+background:#FFD447;
+
+}
+
+.planner h2::after{
+
+background:#FF8BC8;
+
+}
+
+.timer h2::after{
+
+background:#91C8FF;
+
+}
+
+.progress h2::after{
+
+background:#AE8EFF;
+
+}
+/* ==========================================
+   DRIBBBLE UPGRADE — PART 1B
+========================================== */
+
+/* Cute sticky note */
+
+.hero-right{
+
+position:relative;
+
+}
+
+.hero-right::before{
+
+content:"Today's Goal\AStudy 3 hours";
+
+white-space:pre;
+
+position:absolute;
+
+top:25px;
+
+right:-20px;
+
+padding:18px;
+
+background:#FFF7C8;
+
+border-radius:14px;
+
+font-size:16px;
+
+font-weight:700;
+
+line-height:1.6;
+
+color:#5E537E;
+
+transform:rotate(7deg);
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.08);
+
+z-index:5;
+
+}
+
+/* Tape holding note */
+
+.hero-right::after{
+
+content:"";
+
+position:absolute;
+
+width:85px;
+
+height:20px;
+
+background:#D7C7FF;
+
+opacity:.8;
+
+top:15px;
+
+right:25px;
+
+transform:rotate(10deg);
+
+border-radius:3px;
+
+}
+
+/* Scribble arrow */
+
+.hero-left{
+
+position:relative;
+
+}
+
+.hero-left::before{
+
+content:"↺";
+
+position:absolute;
+
+left:-35px;
+
+top:140px;
+
+font-size:44px;
+
+color:#A988FF;
+
+opacity:.55;
+
+transform:rotate(-18deg);
+
+}
+
+.hero-left::after{
+
+content:"✎";
+
+position:absolute;
+
+right:60px;
+
+bottom:10px;
+
+font-size:28px;
+
+color:#FFAE6B;
+
+opacity:.65;
+
+}
+
+/* Sparkles around image */
+
+.hero-right img{
+
+filter:
+
+drop-shadow(0 0 18px rgba(166,125,255,.35));
+
+animation:
+
+floatHero 5s ease-in-out infinite;
+
+}
+
+/* Small doodle stars */
+
+.hero-right .doodle{
+
+display:none;
+
+}
+
+.hero{
+
+background-image:
+
+radial-gradient(circle,#ffffff 1px,transparent 1px),
+
+radial-gradient(circle,#ffffff 1px,transparent 1px);
+
+background-size:
+
+90px 90px,
+
+130px 130px;
+
+background-position:
+
+20px 20px,
+
+60px 60px;
+
+}
+
+/* Tiny corner sparkles */
+
+.feature-card .sparkle{
+
+display:none;
+
+}
+
+.feature-card:nth-child(1){
+
+background-color:#FFFDF8;
+
+}
+
+.feature-card:nth-child(2){
+
+background-color:#FFF9FC;
+
+}
+
+.feature-card:nth-child(3){
+
+background-color:#F9FCFF;
+
+}
+
+.feature-card:nth-child(4){
+
+background-color:#FCFAFF;
+
+}
+
+/* Soft card shadow */
+
+.feature-card{
+
+box-shadow:
+
+0 14px 30px rgba(122,106,255,.10);
+
+}
+
+/* Hero animation */
+
+@keyframes floatHero{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+/* ==========================================
+   DRIBBBLE UPGRADE — PART 1C
+========================================== */
+
+/* Torn paper bottoms */
+
+.feature-card{
+
+    clip-path:polygon(
+    0 0,
+    100% 0,
+    100% 96%,
+    96% 99%,
+    92% 97%,
+    88% 100%,
+    83% 97%,
+    77% 100%,
+    71% 97%,
+    65% 99%,
+    58% 97%,
+    52% 100%,
+    46% 97%,
+    39% 100%,
+    31% 97%,
+    24% 100%,
+    16% 97%,
+    8% 99%,
+    0 97%
+    );
+
+}
+
+/* Glitter particles */
+
+.feature-card:hover{
+
+    box-shadow:
+
+    0 20px 45px rgba(135,108,255,.18);
+
+}
+
+.feature-card:hover::after{
+
+    animation:twinkle .8s infinite;
+
+}
+
+/* Floating stars */
+
+.hero .float-star{
+
+display:none;
+
+}
+
+body{
+
+position:relative;
+
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"✦";
+
+position:fixed;
+
+left:35px;
+
+bottom:120px;
+
+font-size:34px;
+
+color:#FFD447;
+
+animation:floatStar 6s infinite;
+
+opacity:.8;
+
+pointer-events:none;
+
+}
+
+body::after{
+
+content:"✧";
+
+position:fixed;
+
+right:45px;
+
+top:220px;
+
+font-size:28px;
+
+color:#9D7CFF;
+
+animation:floatStar 8s infinite;
+
+pointer-events:none;
+
+}
+
+/* Cute quote box */
+
+.quote-section{
+
+position:relative;
+
+}
+
+.quote-section::before{
+
+content:"Dream Big ✦";
+
+position:absolute;
+
+top:-35px;
+
+left:0;
+
+padding:10px 18px;
+
+background:#FFF7C8;
+
+border-radius:12px;
+
+font-weight:700;
+
+font-size:15px;
+
+transform:rotate(-5deg);
+
+box-shadow:
+
+0 8px 18px rgba(0,0,0,.08);
+
+}
+
+/* Tiny notebook pin */
+
+.quote-section::after{
+
+content:"📎";
+
+position:absolute;
+
+top:-12px;
+
+left:18px;
+
+font-size:20px;
+
+}
+
+/* Better button */
+
+.open-btn{
+
+transition:.3s;
+
+}
+
+.open-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+
+0 8px 18px rgba(118,88,255,.22);
+
+}
+
+/* Animations */
+
+@keyframes floatStar{
+
+0%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+
+opacity:.4;
+transform:scale(.9);
+
+}
+
+50%{
+
+opacity:1;
+transform:scale(1.2);
+
+}
+
+}

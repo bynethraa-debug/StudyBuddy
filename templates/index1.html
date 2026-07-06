@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudyBuddy</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    background:#dfeaf8;
+}
+
+.header{
+    text-align:center;
+    padding:50px;
+}
+
+.header h1{
+    font-size:70px;
+    color:#173b78;
+    margin-bottom:10px;
+}
+
+.header p{
+    font-size:22px;
+    color:#5572a3;
+}
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    padding-bottom:60px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#173b78;
+
+    transition:.3s;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+    font-size:60px;
+
+}
+
+.title{
+
+    margin-top:20px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.desc{
+
+    margin-top:15px;
+
+    color:#6b84ad;
+
+}
+
+.footer{
+
+    text-align:center;
+
+    margin:50px;
+
+    color:#6b84ad;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>✨ StudyBuddy ✨</h1>
+
+<p>Your all-in-one study companion.</p>
+
+</div>
+
+<div class="container">
+
+<a class="card" href="/materials">
+
+<div class="icon">📚</div>
+
+<div class="title">Study Materials</div>
+
+<div class="desc">
+
+Notes, textbooks, PDFs and chapters.
+
+</div>
+
+</a>
+
+<a class="card" href="/tasks">
+
+<div class="icon">✅</div>
+
+<div class="title">To-do List</div>
+
+<div class="desc">
+
+Organize your homework and assignments.
+
+</div>
+
+</a>
+
+<a class="card" href="/timer">
+
+<div class="icon">⏰</div>
+
+<div class="title">Pomodoro Timer</div>
+
+<div class="desc">
+
+Stay focused while studying.
+
+</div>
+
+</a>
+
+
+</div>
+
+<div class="footer">
+
+Made with 💙 using Flask + SQLite
+
+</div>
+
+</body>
+</html>

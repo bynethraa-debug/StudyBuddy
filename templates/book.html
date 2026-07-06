@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ book["book_name"] }}</title>
+
+<style>
+
+body{
+    font-family:Georgia, serif;
+    background:#dfeaf8;
+    margin:0;
+    padding:40px;
+}
+
+.back{
+    text-decoration:none;
+    color:#173b78;
+    font-weight:bold;
+    font-size:18px;
+}
+
+h1{
+    text-align:center;
+    color:#173b78;
+    font-size:48px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6b83ad;
+    margin-bottom:40px;
+}
+
+.chapter{
+
+    display:block;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin:20px auto;
+
+    max-width:700px;
+
+    text-decoration:none;
+
+    color:#173b78;
+
+    font-size:22px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.chapter:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.empty{
+
+    text-align:center;
+    color:gray;
+    font-size:24px;
+    margin-top:50px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="javascript:history.back()" class="back">
+← Back
+</a>
+
+<h1>
+
+📘 {{ book["book_name"] }}
+
+</h1>
+
+<p class="subtitle">
+
+Choose a chapter
+
+</p>
+
+{% if chapters %}
+
+    {% for chapter in chapters %}
+
+    <a href="/chapter/{{ chapter['id'] }}" class="chapter">
+
+        📂 {{ chapter["chapter_name"] }}
+
+    </a>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="empty">
+
+No chapters found.
+
+</div>
+
+{% endif %}
+
+</body>
+
+</html>

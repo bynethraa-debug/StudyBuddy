@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+    --bg:#eef5ff;
+    --card:#ffffff;
+    --text:#1f3d70;
+    --muted:#7b90b2;
+
+    --purple:#7d7cff;
+    --blue:#73c6ff;
+    --orange:#ffbb66;
+    --pink:#ff93bc;
+
+    --shadow:0 12px 30px rgba(40,55,120,.08);
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:250px;
+
+    height:100vh;
+
+    background:white;
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.logo{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#1f4d95;
+
+    margin-bottom:45px;
+
+}
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.sidebar nav a{
+
+    text-decoration:none;
+
+    color:#456490;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    transition:.25s;
+
+}
+
+.sidebar nav a:hover{
+
+    background:#eef5ff;
+
+}
+
+.sidebar nav .active{
+
+    background:linear-gradient(135deg,#7d7cff,#a7b8ff);
+
+    color:white;
+
+}
+
+/* ================= MAIN ================= */
+
+.main{
+
+    margin-left:285px;
+
+    padding:45px;
+
+}
+
+/* ================= HEADER ================= */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.header h1{
+
+    font-size:52px;
+
+}
+
+.header p{
+
+    color:var(--muted);
+
+    margin-top:6px;
+
+}
+
+.header-right{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.info-card{
+
+    background:white;
+
+    padding:18px 28px;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    min-width:190px;
+
+}
+
+.info-card small{
+
+    color:var(--muted);
+
+}
+
+.info-card h3{
+
+    margin-top:8px;
+
+}
+
+/* ================= STAT CARDS ================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+    margin-bottom:35px;
+
+}
+
+.stat{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    color:white;
+
+    padding:28px;
+
+    border-radius:26px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.2);
+
+    font-size:28px;
+
+}
+
+.purple{
+
+    background:linear-gradient(135deg,#7d7cff,#a8b8ff);
+
+}
+
+.blue{
+
+    background:linear-gradient(135deg,#63c6ff,#99e5ff);
+
+}
+
+.orange{
+
+    background:linear-gradient(135deg,#ffb75f,#ffd36b);
+
+}
+
+.pink{
+
+    background:linear-gradient(135deg,#ff8eb0,#ffc8da);
+
+}
+/* =====================================
+CONTENT LAYOUT
+===================================== */
+
+.content{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.left-column,
+.right-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/* =====================================
+PANELS
+===================================== */
+
+.panel{
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.panel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.panel-header h2{
+
+    font-size:24px;
+
+    color:var(--text);
+
+}
+
+/* =====================================
+WEEKLY PLANNER
+===================================== */
+
+.week-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(7,1fr);
+
+    gap:14px;
+
+}
+
+.day-card{
+
+    background:#f7faff;
+
+    border-radius:20px;
+
+    min-height:210px;
+
+    padding:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    transition:.25s;
+
+}
+
+.day-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.day-card h4{
+
+    text-align:center;
+
+    color:#456490;
+
+    margin-bottom:8px;
+
+    padding-bottom:8px;
+
+    border-bottom:1px solid #e6eefb;
+
+}
+
+.empty-day{
+
+    color:#a4b2ca;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-style:italic;
+
+}
+
+.mini-task{
+
+    background:white;
+
+    border-left:4px solid var(--purple);
+
+    border-radius:12px;
+
+    padding:10px;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.05);
+
+}
+
+.mini-task strong{
+
+    display:block;
+
+    font-size:13px;
+
+    color:var(--text);
+
+}
+
+.mini-task span{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:11px;
+
+    color:var(--muted);
+
+}
+
+/* =====================================
+PLANNER TABLE
+===================================== */
+
+.planner-table{
+
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0 12px;
+
+}
+
+.planner-table th{
+
+    text-align:left;
+
+    color:var(--muted);
+
+    padding-bottom:10px;
+
+}
+
+.planner-table td{
+
+    background:#f8fbff;
+
+    padding:16px;
+
+}
+
+.planner-table tr td:first-child{
+
+    border-radius:16px 0 0 16px;
+
+}
+
+.planner-table tr td:last-child{
+
+    border-radius:0 16px 16px 0;
+
+}
+
+.planner-table tbody tr:hover td{
+
+    background:#eef5ff;
+
+}
+/* =====================================
+UPCOMING TASKS
+===================================== */
+
+.upcoming-task{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#f8fbff;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    margin-bottom:14px;
+
+    transition:.25s;
+
+}
+
+.upcoming-task:hover{
+
+    background:#eef5ff;
+
+    transform:translateX(5px);
+
+}
+
+.upcoming-task strong{
+
+    display:block;
+
+    color:var(--text);
+
+    margin-bottom:4px;
+
+}
+
+.upcoming-task p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+.upcoming-task span{
+
+    font-size:13px;
+
+    color:var(--muted);
+
+}
+
+/* =====================================
+FORM
+===================================== */
+
+.task-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.task-form input,
+.task-form select{
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    background:#f7faff;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+}
+
+.task-form input:focus,
+.task-form select:focus{
+
+    background:white;
+
+    box-shadow:0 0 0 3px rgba(125,124,255,.15);
+
+}
+
+.task-form button{
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    background:linear-gradient(135deg,#7d7cff,#a8b8ff);
+
+    transition:.25s;
+
+}
+
+.task-form button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* =====================================
+BADGES
+===================================== */
+
+.badge{
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.high{
+
+    background:#ff6b6b;
+
+}
+
+.medium{
+
+    background:#ffbf47;
+
+}
+
+.low{
+
+    background:#57c785;
+
+}
+
+/* =====================================
+BUTTONS
+===================================== */
+
+.edit-btn{
+
+    text-decoration:none;
+
+    margin-right:10px;
+
+    font-size:18px;
+
+}
+
+.delete-btn{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+/* =====================================
+TIME BLOCKS
+===================================== */
+
+.time-block{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px;
+
+    background:#f8fbff;
+
+    border-radius:18px;
+
+    margin-bottom:12px;
+
+}
+
+.time-block strong{
+
+    color:var(--text);
+
+}
+
+.time-block p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+.time-block span{
+
+    color:var(--muted);
+
+}
+
+/* =====================================
+RESPONSIVE
+===================================== */
+
+@media(max-width:1200px){
+
+    .stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .content{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        padding:25px;
+
+    }
+
+    .header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .header-right{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .week-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}

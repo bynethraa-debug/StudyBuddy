@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ subject["subject_name"] }}</title>
+
+<style>
+
+body{
+    font-family:Georgia, serif;
+    background:#dfeaf8;
+    margin:0;
+    padding:40px;
+}
+
+.back{
+    text-decoration:none;
+    color:#173b78;
+    font-weight:bold;
+    font-size:18px;
+}
+
+h1{
+    text-align:center;
+    color:#173b78;
+    font-size:50px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6b83ad;
+    margin-bottom:40px;
+}
+
+.book{
+
+    display:block;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin:20px auto;
+
+    max-width:700px;
+
+    text-decoration:none;
+
+    color:#173b78;
+
+    font-size:22px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.book:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.empty{
+
+    text-align:center;
+    color:#888;
+    font-size:22px;
+    margin-top:50px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="/materials" class="back">
+← Back to Subjects
+</a>
+
+<h1>
+
+📚 {{ subject["subject_name"] }}
+
+</h1>
+
+<p class="subtitle">
+
+Choose a book / volume
+
+</p>
+
+{% if books %}
+
+    {% for book in books %}
+
+    <a href="/book/{{ book['id'] }}" class="book">
+
+        📘 {{ book["book_name"] }}
+
+    </a>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="empty">
+
+No books found.
+
+</div>
+
+{% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>{{ book["book_name"] }}</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/chapters.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/book/{{ book['id'] }}" class="back">
+
+← Back
+
+</a>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="sparkle">
+
+✦
+
+</div>
+
+<h1>
+
+📘 {{ book["book_name"] }}
+
+</h1>
+
+<p>
+
+Choose a chapter to begin studying.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+<img
+src="{{ url_for('static', filename='images/materials.png') }}"
+alt="Book">
+
+
+</div>
+
+<span class="sparkle s1">✦</span>
+<span class="sparkle s2">✧</span>
+<span class="sparkle s3">✦</span>
+
+</section>
+
+<section class="chapters-grid">
+
+{% if chapters %}
+
+{% for chapter in chapters %}
+
+<a
+href="/chapter/{{ chapter['id'] }}"
+class="chapter-card">
+
+<div class="tape"></div>
+
+<div class="chapter-number">
+
+{{ "%02d"|format(loop.index) }}
+
+</div>
+
+<div class="chapter-info">
+
+<h2>
+
+{{ chapter["chapter_name"] }}
+
+</h2>
+
+<div class="line"></div>
+
+<p>
+
+Open notes, questions and resources.
+
+</p>
+
+</div>
+
+<div class="chapter-icon">
+
+📖
+
+</div>
+
+<div class="arrow">
+
+➜
+
+</div>
+
+</a>
+
+{% endfor %}
+
+{% else %}
+
+<div class="chapter-card">
+
+<div class="chapter-info">
+
+<h2>
+
+No Chapters Found
+
+</h2>
+
+<p>
+
+No chapters have been added yet.
+
+</p>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</section>
+
+<div class="doodle-star star1">✦</div>
+<div class="doodle-star star2">✧</div>
+
+<div class="squiggle left">〰</div>
+<div class="squiggle right">〰</div>
+
+</div>
+
+</body>
+
+</html>

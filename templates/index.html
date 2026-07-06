@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>StudyBuddy</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <div class="sparkle">
+
+            ✦
+
+        </div>
+
+        <h1>
+
+            Welcome to
+            <span>StudyBuddy!</span>
+
+        </h1>
+
+        <p>
+
+            Your all-in-one study companion designed to help
+            you organise your study materials, plan your week,
+            stay focused and keep track of your academic journey.
+
+        </p>
+
+        <a
+        href="/materials"
+        class="hero-button">
+
+            ✨ Explore Study Materials
+
+        </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+        src="{{ url_for('static', filename='images/hero.png') }}"
+        alt="StudyBuddy Hero">
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <!-- Study Materials -->
+
+    <a href="/materials" class="feature-card materials">
+
+        <img
+        src="{{ url_for('static', filename='images/materials.png') }}">
+
+        <h2>
+
+            Study Materials
+
+        </h2>
+
+        <p>
+
+            NCERTs, PYQs,
+            PDFs and resources
+            organised by subject.
+
+        </p>
+
+        <div class="open-btn">
+
+            Open →
+
+        </div>
+
+    </a>
+
+    <!-- Planner -->
+
+    <a href="/planner" class="feature-card planner">
+
+        <img
+        src="{{ url_for('static', filename='images/planner.png') }}">
+
+        <h2>
+
+            Planner
+
+        </h2>
+
+        <p>
+
+            Manage your weekly
+            schedule and stay
+            organised.
+
+        </p>
+
+        <div class="open-btn">
+
+            Open →
+
+        </div>
+
+    </a>
+
+    <!-- Timer -->
+
+    <a href="/timer" class="feature-card timer">
+
+        <img
+        src="{{ url_for('static', filename='images/timer.png') }}">
+
+        <h2>
+
+            Focus Timer
+
+        </h2>
+
+        <p>
+
+            Stay productive using
+            focused study sessions.
+
+        </p>
+
+        <div class="open-btn">
+
+            Open →
+
+        </div>
+
+    </a>
+        <!-- Progress Tracker -->
+
+    <a href="/progress" class="feature-card progress">
+
+        <img
+        src="{{ url_for('static', filename='images/progress.png') }}">
+
+        <h2>
+
+            Progress Tracker
+
+        </h2>
+
+        <p>
+
+            Track your consistency,
+            completed sessions
+            and overall growth.
+
+        </p>
+
+        <div class="progress-preview">
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+            <span>
+
+                72%
+
+            </span>
+
+        </div>
+
+        <div class="open-btn">
+
+            View →
+
+        </div>
+
+    </a>
+
+</section>
+
+<!-- ================= MOTIVATION ================= -->
+
+<section class="motivation">
+
+    <div class="quote-section">
+
+        <div class="quote-icon">
+
+            ✦
+
+        </div>
+
+        <h2>
+
+            Discipline today,
+            <span>freedom tomorrow.</span>
+
+        </h2>
+
+        <p>
+
+            Small, consistent actions create extraordinary results.
+            Every chapter you complete, every Pomodoro you finish,
+            and every task you check off brings you closer to your goals.
+
+        </p>
+
+    </div>
+
+    <div class="quote-image">
+
+        <img
+        src="{{ url_for('static', filename='images/quote.png') }}"
+        alt="Study Motivation">
+
+    </div>
+
+</section>
+
+</div>
+
+</body>
+
+</html>
