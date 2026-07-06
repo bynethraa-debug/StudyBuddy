@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Study Materials</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#dcecff;
+            padding:40px;
+        }
+
+        .box{
+            background:white;
+            max-width:800px;
+            margin:auto;
+            padding:30px;
+            border-radius:20px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+
+        button{
+            padding:10px 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>📚 Study Materials</h1>
+
+    <form action="/add_material" method="POST">
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required>
+
+        <input
+            type="text"
+            name="topic"
+            placeholder="Topic"
+            required>
+
+        <button type="submit">
+            Add Material
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h2>Stored Materials</h2>
+
+    <ul>
+
+    {% for material in materials %}
+
+        <li>
+            {{ material[1] }} - {{ material[2] }}
+        </li>
+
+    {% endfor %}
+
+    </ul>
+
+    <br>
+
+    <a href="/">
+        ← Back to Home
+    </a>
+
+</div>
+
+</body>
+
+</html>
