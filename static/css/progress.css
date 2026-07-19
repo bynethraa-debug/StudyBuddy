@@ -1,0 +1,400 @@
+/* ==========================
+   Global Styles
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#F8F3FF,#EFE6FF,#FCFAFF);
+    overflow-x:hidden;
+}
+
+/* ==========================
+   Animated Background
+========================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.4;
+    animation:float 8s ease-in-out infinite;
+}
+
+.blob1{
+    width:320px;
+    height:320px;
+    background:#D8B4FE;
+    top:-80px;
+    left:-60px;
+}
+
+.blob2{
+    width:250px;
+    height:250px;
+    background:#C084FC;
+    bottom:-50px;
+    right:-50px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-30px);
+}
+
+}
+
+/* ==========================
+   Header
+========================== */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:25px 8%;
+
+}
+
+header h1{
+
+color:#8B5CF6;
+
+}
+
+.homeBtn{
+
+text-decoration:none;
+background:white;
+color:#8B5CF6;
+padding:12px 22px;
+border-radius:30px;
+font-weight:600;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+transition:.3s;
+
+}
+
+.homeBtn:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ==========================
+   Cards
+========================== */
+
+.container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+padding:50px 8%;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.65);
+
+backdrop-filter:blur(15px);
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+animation:fadeUp .8s ease;
+
+}
+
+.card{
+    padding:25px;
+    min-height:220px;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.card h2{
+
+margin-bottom:20px;
+
+color:#8B5CF6;
+
+}
+
+/* ==========================
+   Numbers
+========================== */
+
+.bigNumber{
+
+font-size:60px;
+
+font-weight:700;
+
+color:#7C3AED;
+
+text-align:center;
+
+margin-top:10px;
+
+}
+
+/* ==========================
+   Progress Bar
+========================== */
+
+.progressBar{
+
+width:100%;
+
+height:22px;
+
+background:#E9D5FF;
+
+border-radius:30px;
+
+overflow:hidden;
+
+margin:25px 0;
+
+}
+
+#progressFill{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#A855F7,#C084FC);
+
+border-radius:30px;
+
+transition:1s;
+
+}
+
+#progressText{
+
+font-size:22px;
+
+font-weight:600;
+
+text-align:center;
+
+color:#7C3AED;
+
+}
+
+/* ==========================
+   Checklist
+========================== */
+
+label{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+margin:15px 0;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+input[type="checkbox"]{
+
+width:20px;
+
+height:20px;
+
+accent-color:#A855F7;
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media(max-width:768px){
+
+.container{
+
+padding:30px;
+
+}
+
+.bigNumber{
+
+font-size:45px;
+
+}
+
+}
+/* ==========================
+   Dashboard Cards
+========================== */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:0 8% 40px;
+}
+
+.stat-card p{
+    font-size:52px;
+    font-weight:700;
+    margin-top:15px;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 20px 40px rgba(168,85,247,.25);
+}
+
+.stat-card h3{
+    color:#8B5CF6;
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.stat-card p{
+    font-size:38px;
+    font-weight:700;
+    color:#7C3AED;
+}
+
+/* ==========================
+   Charts
+========================== */
+
+.charts{
+    width:84%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+    gap:30px;
+}
+
+.chart-card{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.chart-card:hover{
+    transform:translateY(-8px);
+}
+
+.chart-card h2{
+    color:#8B5CF6;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.chart-card canvas{
+    width:100% !important;
+    height:300px !important;
+}
+
+/* ==========================
+   Achievement Cards
+========================== */
+
+.achievement-grid{
+    width:84%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.achievement{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 15px 25px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.achievement:hover{
+    transform:scale(1.05);
+}
+
+.achievement h3{
+    color:#8B5CF6;
+    margin-bottom:10px;
+}
+
+.unlocked{
+    border:3px solid #A855F7;
+}
+
+.locked{
+    opacity:.45;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:900px){
+
+.charts{
+    grid-template-columns:1fr;
+}
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Progress Tracker</title>
+
+<link rel="stylesheet" href="progress.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+</div>
+
+<header>
+    <h1>📈 Progress Tracker</h1>
+    <a href="index.html" class="homeBtn">🏠 Home</a>
+</header>
+
+<!-- Statistics -->
+<h2 class="section-title">📊 Dashboard Overview</h2>
+<section class="stats-grid">
+
+    <div class="stat-card">
+        <h3>📊 Total Study Hours</h3>
+        <p id="totalHours">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>🔥 Study Streak</h3>
+        <p id="streak">7</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>⭐ Focus Sessions</h3>
+        <p id="sessions">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>🎯 Goals Completed</h3>
+        <p id="goals">0</p>
+    </div>
+
+</section>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Today's Study Sessions</h2>
+
+        <div id="sessionCount" class="bigNumber">0</div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Daily Goal</h2>
+
+        <div class="progressBar">
+            <div id="progressFill"></div>
+        </div>
+
+        <p id="progressText">0%</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Today's Tasks</h2>
+
+        <label><input type="checkbox"> Read Notes</label>
+        <label><input type="checkbox"> Practice Questions</label>
+        <label><input type="checkbox"> Watch Lecture</label>
+        <label><input type="checkbox"> Revision</label>
+
+    </div>
+
+</div>
+
+<!-- Charts -->
+
+<h2 class="section-title">📈 Analytics Dashboard</h2>
+<section class="charts">
+
+    <div class="chart-card">
+        <h2>📈 Study Hours Trend</h2>
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>📚 Time Spent by Subject</h2>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>🥧 Subject Distribution</h2>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>📅 Weekly Activity</h2>
+        <canvas id="weekChart"></canvas>
+    </div>
+
+</section>
+
+<!-- Achievements -->
+ 
+<h2 class="section-title">🏆 Achievements</h2>
+<section class="achievement-grid">
+
+<div class="achievement unlocked">
+<h3>⭐ First 10 Hours</h3>
+<p>Completed</p>
+</div>
+
+<div class="achievement unlocked">
+<h3>🔥 7-Day Streak</h3>
+<p>Completed</p>
+</div>
+
+<div class="achievement unlocked">
+<h3>📚 50 Sessions</h3>
+<p>Completed</p>
+</div>
+
+<div class="achievement locked">
+<h3>🏅 100 Study Hours</h3>
+<p>Locked</p>
+</div>
+
+<div class="achievement locked">
+<h3>👑 30-Day Streak</h3>
+<p>Locked</p>
+</div>
+
+<div class="achievement locked">
+<h3>🚀 500 Sessions</h3>
+<p>Locked</p>
+</div>
+
+</section>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="progress.js"></script>
+
+</body>
+
+</html>

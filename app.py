@@ -607,6 +607,9 @@ def delete_planner_task(id):
 @app.route("/timer")
 def timer():
     return render_template("timer.html")
+@app.route("/progress")
+def progress():
+    return render_template("progress.html")
 # =====================================================
 # RUN APP
 # =====================================================
