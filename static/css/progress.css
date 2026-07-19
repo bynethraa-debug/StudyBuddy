@@ -1,7 +1,3 @@
-/* ==========================
-   Global Styles
-========================== */
-
 *{
     margin:0;
     padding:0;
@@ -98,6 +94,92 @@ transition:.3s;
 .homeBtn:hover{
 
 transform:translateY(-3px);
+
+}
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:240px;
+
+height:100vh;
+
+background:white;
+
+padding:35px 25px;
+
+display:flex;
+
+flex-direction:column;
+
+box-shadow:5px 0 20px rgba(0,0,0,.08);
+
+z-index:100;
+
+}
+
+.logo{
+
+font-size:32px;
+
+color:#7C3AED;
+
+margin-bottom:40px;
+
+}
+
+.sidebar nav{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.sidebar nav a{
+
+text-decoration:none;
+
+padding:14px;
+
+border-radius:14px;
+
+font-weight:600;
+
+color:#5B21B6;
+
+transition:.25s;
+
+}
+
+.sidebar nav a:hover{
+
+background:#EFE6FF;
+
+}
+
+.sidebar nav a.active{
+
+background:#8B5CF6;
+
+color:white;
+
+}
+
+.main-content{
+
+margin-left:270px;
+
+padding:35px;
 
 }
 
@@ -398,3 +480,4 @@ font-size:45px;
 }
 
 }
+

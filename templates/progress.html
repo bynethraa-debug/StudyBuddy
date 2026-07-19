@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +9,13 @@
 
 <title>Progress Tracker</title>
 
-<link rel="stylesheet" href="progress.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/progress.css') }}">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
+<body>
 <body>
 
 <div class="background">
@@ -21,9 +23,36 @@
     <div class="blob blob2"></div>
 </div>
 
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <h1 class="logo">StudyBuddy</h1>
+
+    <nav>
+
+        <a href="{{ url_for('home') }}">🏠 Dashboard</a>
+
+        <a href="{{ url_for('materials') }}">📚 Study Materials</a>
+
+        <a href="{{ url_for('planner') }}">📝 Planner</a>
+
+        <a href="{{ url_for('timer') }}">⏱ Focus Timer</a>
+
+        <a href="{{ url_for('progress') }}" class="active">📈 Progress Tracker</a>
+
+    </nav>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="main-content">
+
 <header>
-    <h1>📈 Progress Tracker</h1>
-    <a href="index.html" class="homeBtn">🏠 Home</a>
+
+<h1>📈 Progress Tracker</h1>
+
 </header>
 
 <!-- Statistics -->
@@ -153,9 +182,9 @@
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/progress.js') }}"></script>
 
-<script src="progress.js"></script>
-
+</div>
 </body>
 
 </html>
