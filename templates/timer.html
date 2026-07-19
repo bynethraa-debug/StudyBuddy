@@ -1,334 +1,410 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My Study Timer</title>
-<style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-body{
-    background:#dfeaf8;
-    font-family:Georgia, serif;
-    margin:0;
-    padding:40px;
-}
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
 
-.container{
-    max-width:900px;
-    margin:auto;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer | StudyBuddy</title>
+    <link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-h1{
-    text-align:center;
-    color:#102c5f;
-    font-size:60px;
-}
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-.subtitle{
-    text-align:center;
-    color:#4d648d;
-    font-style:Georgia, serif
-    margin-bottom:40px;
-}
 
-.back{
-    text-decoration:none;
-    color:#102c5f;
-    font-weight:bold;
-    font-size:20px;
-}
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
 
-form{
-    text-align:center;
-}
-
-input[type="text"]{
-    width:350px;
-    padding:15px;
-    border:none;
-    border-radius:15px;
-    font-size:18px;
-}
-
-.add-btn{
-    background:#ffb6c1;
-    color:white;
-    border:none;
-    padding:15px 25px;
-    border-radius:15px;
-    font-size:18px;
-    cursor:pointer;
-    margin-left:10px;
-}
-
-.add-btn:hover{
-    background:#ff9eb0;
-}
-
-.task-box{
-    background:white;
-    border-radius:20px;
-    padding:20px;
-    margin-top:20px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-
-.task-name{
-    color:#102c5f;
-    font-size:24px;
-}
-
-.delete-btn{
-    background:#ff8c8c;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-.delete-btn:hover{
-    background:#ff6f6f;
-}
-
-</style>
-
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/timer.css') }}">
 </head>
-
-<body>
-
-<div class="container">
-      <a href="/" class="back-btn"> ⊹ ࣪ ˖ ➤ Back to Dashboard</a>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Study Timer</title>
-<style>
-
-body{
-    background:#dfeaf8;
-}
-
-.timer-container{
-    ...
-}
-
-.back-container{
-    text-align:left;
-}
-
-.back-btn{
-    margin-left:40px;
-    font-size:32px;
-    font-weight:bold;
-    color:#0f2f6b;
-    text-decoration:none;
-}
-
-<style>
-
-body{
-    background:#dfeaf7;
-    font-family:Georgia, serif;
-    text-align:center;
-    color:#23395d;
-}
-
-.container{
-    margin-top:60px;
-}
-
-h1{
-    font-size:55px;
-}
-
-.timer-box{
-    background:white;
-    width:500px;
-    margin:auto;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-input{
-    padding:12px;
-    font-size:18px;
-    border-radius:10px;
-    border:none;
-    width:150px;
-}
-
-button{
-    background:#7aa8ff;
-    color:white;
-    border:none;
-    padding:12px 24px;
-    border-radius:12px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#5d91f5;
-}
-
-#countdown{
-    font-size:60px;
-    margin-top:30px;
-    font-weight:bold;
-}
-
-</style>
-</head>
-
 <body>
 
 <div class="container">
 
-<h1>⏰ Study Timer ⏰</h1>
+    <!-- ========================= -->
+    <!-- Sidebar -->
+    <!-- ========================= -->
 
-<div class="timer-box">
+    <aside class="sidebar">
 
-<h2>Customize Your Session ✨</h2>
+        <div class="logo">
+            <h1>StudyBuddy</h1>
+            <p>Study Smarter.</p>
+        </div>
 
-<input id="minutes" type="number" placeholder="Minutes">
+        <nav>
 
-<button onclick="startTimer()">
-🌸 Start Session
-</button>
-<button onclick="stopTimer()">
-⏹ Stop Session
-</button>
-<button onclick="resetTimer()">
-🔄 Reset
-</button>
-<div id="countdown">
-0:00
+            <a href="{{ url_for('home') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('materials') }}">
+                Study Materials
+            </a>
+
+            <a href="{{ url_for('planner') }}">
+                Planner
+            </a>
+
+            <a href="{{ url_for('timer') }}"
+               class="active">
+                Focus Timer
+            </a>
+
+            <a href="#">
+                Progress Tracker
+            </a>
+
+        </nav>
+
+        <div class="sticky-note">
+
+            <img src="{{ url_for('static', filename='images/tuff.png') }}">
+
+            <h3>Today's Goal</h3>
+
+            <p>
+                Finish one chapter before taking a break.
+            </p>
+
+        </div>
+        <div class="sidebar-image">
+                <img src="{{ url_for('static',
+                filename='images/tuff.png') }}">
+
+
+    </aside>
+
+
+
+    <!-- ========================= -->
+    <!-- Main Content -->
+    <!-- ========================= -->
+
+    <main class="dashboard">
+
+        <header class="header">
+
+            <div>
+
+                <h1>Focus Timer</h1>
+
+                <p>
+                    Stay focused and build consistent study habits.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <div class="content-grid">
+
+            <!-- LEFT COLUMN -->
+
+            <section class="left-column">
+
+                <!-- ========================= -->
+                <!-- Timer Card -->
+                <!-- ========================= -->
+
+                <div class="card timer-card">
+                    <div class="timer-tabs">
+
+                        <button
+                            id="pomodoroBtn"
+                            class="active">
+                            Pomodoro
+                        </button>
+
+                        <button
+                            id="shortBreakBtn">
+                            Short Break
+                        </button>
+
+                        <button
+                            id="longBreakBtn">
+                            Long Break
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="timer-wrapper">
+
+                        <svg
+                            class="progress-ring"
+                            width="340"
+                            height="340">
+
+                            <circle
+                                class="ring-bg"
+                                cx="170"
+                                cy="170"
+                                r="150">
+                            </circle>
+
+                            <circle
+                                id="progressRing"
+                                cx="170"
+                                cy="170"
+                                r="150">
+                            </circle>
+
+                        </svg>
+
+
+                        <div class="timer-content">
+
+                            <img
+                                class="timer-flower"
+                                src="{{ url_for('static', filename='images/timertopflower.png') }}">
+
+                            <h2 id="timer">
+                                25:00
+                            </h2>
+
+                            <p id="sessionType">
+                                Time to Focus!
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="timer-buttons">
+
+                        <button id="startBtn">
+                            Start
+                        </button>
+
+                        <button id="pauseBtn">
+                            Pause
+                        </button>
+
+                        <button id="resetBtn">
+                            Reset
+                        </button>
+
+                    </div>
+
+
+                    <div class="goal-banner">
+
+                        <strong>
+                            Goal:
+                        </strong>
+
+                        Finish your Physics assignment before your next break.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ========================= -->
+                <!-- Study Setup -->
+                <!-- ========================= -->
+
+                <div class="card study-card">
+
+                    <div class="study-left">
+
+                        <h2>
+                            Study Setup
+                        </h2>
+
+                        <div class="input-group">
+
+                            <label>
+                                Subject
+                            </label>
+                            <select id="subjectSelect">
+
+                                <option>Physics</option>
+                                <option>Chemistry</option>
+                                <option>Mathematics</option>
+                                <option>Computer Science</option>
+                                <option>English</option>
+
+                            </select>
+
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Current Task
+                            </label>
+
+                            <input
+                                id="taskInput"
+                                type="text"
+                                placeholder="What are you working on?">
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Mood
+                            </label>
+
+                            <select>
+
+                                <option>Focused</option>
+
+                                <option>Motivated</option>
+
+                                <option>Sleepy</option>
+
+                                <option>Stressed</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Ambient Sound
+                            </label>
+
+                            <select>
+
+                                <option>None</option>
+
+                                <option>Rain</option>
+
+                                <option>Cafe</option>
+
+                                <option>Forest</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="study-right">
+
+                        <img
+                            src="{{ url_for('static', filename='images/hero.png') }}"
+                            alt="Study Illustration">
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- ========================= -->
+            <!-- RIGHT COLUMN -->
+            <!-- ========================= -->
+
+            <aside class="right-column">
+
+                <!-- ========================= -->
+                <!-- Progress -->
+                <!-- ========================= -->
+
+                <div class="card progress-card">
+
+                    <h2>Today's Progress</h2>
+
+                    <div class="stats">
+
+                        <div class="stat-box">
+                            <h3 id="focusTime">0 min</h3>
+                            
+                            <p>Focus Time</p>
+                        </div>
+
+                        <div class="stat-box">
+                            <h3 id="pomodoroCount">0</h3>
+
+                            <p>Pomodoros</p>
+                        </div>
+
+                        <div class="stat-box">
+                            <h3 id="taskCount">0</h3>
+
+                            <p>Tasks Done</p>
+                        </div>
+
+                        <div class="stat-box">
+                            <h3 id="streakCount">1</h3>
+                            <p>Day Streak</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ========================= -->
+                <!-- Recent Sessions -->
+                <!-- ========================= -->
+
+                <div class="card sessions-card">
+
+                    <h2>Recent Sessions</h2>
+
+                    <div id="sessionHistory"></div>
+                    
+
+                </div>
+
+
+
+                <!-- ========================= -->
+                <!-- Motivation -->
+                <!-- ========================= -->
+
+                <div class="card quote-card">
+
+                    <img
+                        src="{{ url_for('static', filename='images/quote.png') }}"
+                        alt="Quote">
+
+                    <blockquote>
+
+                        "Small progress each day adds up to big results."
+
+                    </blockquote>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
 </div>
 
-</div>
-
-</div>
-
-<script>
-
-let timer;
-
-function startTimer(){
-
-    clearInterval(timer);
-
-    let minutes =
-    parseInt(document.getElementById("minutes").value);
-
-    if(!minutes){
-        minutes = 25;
-    }
-
-    let totalSeconds = minutes * 60;
-
-    timer = setInterval(function(){
-
-        let mins =
-        Math.floor(totalSeconds / 60);
-
-        let secs =
-        totalSeconds % 60;
-
-        document.getElementById("countdown").innerHTML =
-        mins + ":" +
-        (secs < 10 ? "0" : "") + secs;
-
-        if(totalSeconds <= 0){
-
-            clearInterval(timer);
-
-            alert("🎉 Study Session Complete!");
-
-        }
-
-        totalSeconds--;
-
-    },1000);
-
-    }
-function stopTimer(){
-
-    clearInterval(timer);
-
-    document.getElementById("countdown").innerHTML =
-    "Paused ⏸️";
-
-}
-function resetTimer(){
-
-    clearInterval(timer);
-
-    document.getElementById("countdown").innerHTML =
-    "0:00";
-
-}
-
-let totalSeconds = minutes * 60;
-
-
-
-
-function startTimer(){
-
-    clearInterval(timer);
-
-    let minutes =
-    parseInt(document.getElementById("minutes").value);
-
-    if(!minutes){
-        minutes = 25;
-    }
-
-    let totalSeconds = minutes * 60;
-
-    timer = setInterval(function(){
-
-        let mins = Math.floor(totalSeconds / 60);
-        let secs = totalSeconds % 60;
-
-        document.getElementById("countdown").innerHTML =
-        mins + ":" + (secs < 10 ? "0" : "") + secs;
-
-        if(totalSeconds <= 0){
-            clearInterval(timer);
-            alert("🎉 Study Session Complete!");
-        }
-
-        totalSeconds--;
-
-    },1000);
-
-}
-
-function stopTimer(){
-
-    clearInterval(timer);
-
-    document.getElementById("countdown").innerHTML =
-    "Paused ⏸️";
-
-}
-
-function resetTimer(){
-
-    clearInterval(timer);
-
-    document.getElementById("countdown").innerHTML =
-    "25:00";
-
-}
-
-</script>
+<script src="{{ url_for('static', filename='js/timer.js') }}"></script>
 
 </body>
 </html>

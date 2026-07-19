@@ -1,0 +1,1248 @@
+/* ===================================================
+   STUDYBUDDY TIMER PAGE
+   PART 1
+=================================================== */
+
+/* Google Fonts:
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+*/
+
+
+/* ==========================
+        RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f8f6ff;
+
+    color:#49416d;
+
+    overflow-x:hidden;
+}
+
+
+/* ==========================
+      BACKGROUND
+========================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#f1ecff,transparent 45%),
+    radial-gradient(circle at bottom right,#ece4ff,transparent 40%);
+
+    z-index:-2;
+}
+
+
+/* ==========================
+      PAGE ANIMATION
+========================== */
+
+.dashboard{
+
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ==========================
+        LAYOUT
+========================== */
+
+.container{
+
+    display:flex;
+
+    min-height:100vh;
+}
+
+
+/* ==========================
+        SIDEBAR
+========================== */
+
+.sidebar{
+
+    width:260px;
+
+    background:white;
+
+    padding:35px 28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    border-right:1px solid #ede7ff;
+
+    box-shadow:
+    10px 0 40px rgba(90,70,170,.05);
+}
+
+
+/* ==========================
+         LOGO
+========================== */
+
+.logo{
+
+    margin-bottom:45px;
+}
+
+.logo h1{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:42px;
+
+    color:#7558f7;
+
+    line-height:1;
+}
+
+.logo p{
+
+    color:#8d86a8;
+
+    margin-top:8px;
+
+    font-size:15px;
+}
+
+
+/* ==========================
+       NAVIGATION
+========================== */
+
+nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:#625a83;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+nav a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:0;
+    height:100%;
+
+    background:#ece4ff;
+
+    transition:.35s;
+
+    z-index:-1;
+}
+
+nav a:hover::before{
+
+    width:100%;
+}
+
+nav a:hover{
+
+    color:#5d47d8;
+
+    transform:translateX(6px);
+}
+
+nav a.active{
+
+    background:#e6dcff;
+
+    color:#5b43ca;
+}
+
+
+/* ==========================
+      STICKY NOTE
+========================== */
+
+.sticky-note{
+
+    margin-top:auto;
+
+    background:#fff4b6;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 35px rgba(0,0,0,.08);
+
+    transform:rotate(-3deg);
+
+    transition:.35s;
+}
+
+.sticky-note:hover{
+
+    transform:
+    rotate(0deg)
+    scale(1.03);
+}
+
+.sticky-note img{
+
+    width:70px;
+
+    margin-bottom:10px;
+}
+
+.sticky-note h3{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:24px;
+
+    margin-bottom:8px;
+}
+
+.sticky-note p{
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+/* ==========================
+       MAIN CONTENT
+========================== */
+
+.dashboard{
+
+    flex:1;
+
+    padding:42px;
+
+    overflow-y:auto;
+}
+
+
+/* ==========================
+         HEADER
+========================== */
+
+.header{
+
+    margin-bottom:35px;
+}
+
+.header h1{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:62px;
+
+    color:#43376d;
+
+    line-height:1;
+}
+
+.header p{
+
+    margin-top:10px;
+
+    color:#8b84a7;
+
+    font-size:18px;
+}
+
+
+/* ==========================
+       GRID LAYOUT
+========================== */
+
+.content-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr
+    1fr;
+
+    gap:30px;
+
+    align-items:start;
+}
+
+.left-column,
+.right-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+}
+
+
+/* ==========================
+          CARDS
+========================== */
+
+.card{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    box-shadow:
+    0 15px 40px rgba(90,70,170,.08);
+
+    transition:
+    transform .35s,
+    box-shadow .35s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 25px 60px rgba(90,70,170,.14);
+}
+
+.card h2{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:34px;
+
+    color:#4f4278;
+
+    margin-bottom:22px;
+}
+/* ===================================================
+   TIMER CARD
+=================================================== */
+
+.timer-card{
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* soft glow */
+
+.timer-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    background:#efe8ff;
+
+    border-radius:50%;
+
+    top:-120px;
+    right:-80px;
+
+    opacity:.45;
+
+    z-index:0;
+}
+
+.timer-card>*{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* ===================================================
+      TIMER TABS
+=================================================== */
+
+.timer-tabs{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-bottom:35px;
+}
+
+.timer-tabs button{
+
+    border:none;
+
+    background:#f3efff;
+
+    color:#6b5e9d;
+
+    padding:13px 24px;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.timer-tabs button:hover{
+
+    transform:translateY(-3px);
+
+    background:#e7ddff;
+}
+
+.timer-tabs button.active{
+
+    background:linear-gradient(
+        135deg,
+        #9a83ff,
+        #7257eb
+    );
+
+    color:white;
+
+    box-shadow:
+    0 12px 25px rgba(114,87,235,.25);
+}
+
+
+
+/* ===================================================
+      TIMER
+=================================================== */
+
+.timer-wrapper{
+
+    width:350px;
+    height:350px;
+
+    margin:15px auto 35px;
+
+    position:relative;
+}
+
+
+/* circle */
+
+.progress-ring{
+
+    transform:rotate(-90deg);
+
+    width:350px;
+    height:350px;
+}
+
+.ring-bg{
+
+    fill:none;
+
+    stroke:#ece6ff;
+
+    stroke-width:12;
+}
+
+#progressRing{
+
+    fill:none;
+
+    stroke:#7d67e8;
+
+    stroke-width:12;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:942;
+
+    stroke-dashoffset:0;
+
+    transition:.5s;
+
+    filter:drop-shadow(0 0 6px #a894ff);
+}
+
+
+/* ===================================================
+      TIMER CONTENT
+=================================================== */
+
+.timer-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.timer-flower{
+
+    width:82px;
+
+    margin-bottom:15px;
+
+    animation:flowerFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes flowerFloat{
+
+    0%{
+
+        transform:translateY(0);
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+    }
+
+    100%{
+
+        transform:translateY(0);
+    }
+
+}
+
+#timer{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:78px;
+
+    color:#4e4176;
+
+    line-height:1;
+}
+
+#sessionType{
+
+    margin-top:8px;
+
+    color:#8b84a7;
+
+    font-size:18px;
+}
+
+
+/* ===================================================
+       TIMER GLOW
+=================================================== */
+
+.running #progressRing{
+
+    animation:ringGlow 2s infinite;
+}
+
+@keyframes ringGlow{
+
+    0%{
+
+        filter:drop-shadow(0 0 4px #7d67e8);
+    }
+
+    50%{
+
+        filter:drop-shadow(0 0 18px #7d67e8);
+    }
+
+    100%{
+
+        filter:drop-shadow(0 0 4px #7d67e8);
+    }
+
+}
+
+
+/* ===================================================
+      BUTTONS
+=================================================== */
+
+.timer-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:30px;
+}
+
+.timer-buttons button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:15px 34px;
+
+    border-radius:35px;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.timer-buttons button:hover{
+
+    transform:translateY(-4px);
+}
+
+#startBtn{
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #9b83ff,
+        #7157eb
+    );
+
+    box-shadow:
+    0 14px 30px rgba(114,87,235,.25);
+}
+
+#pauseBtn{
+
+    background:#ece5ff;
+
+    color:#634ec0;
+}
+
+#resetBtn{
+
+    background:#f2f2f2;
+
+    color:#666;
+}
+
+
+/* ===================================================
+      GOAL
+=================================================== */
+
+.goal-banner{
+
+    background:linear-gradient(
+        135deg,
+        #f5f0ff,
+        #efe8ff
+    );
+
+    padding:18px;
+
+    border-radius:18px;
+
+    color:#64588f;
+
+    line-height:1.7;
+}
+
+
+/* ===================================================
+      STUDY CARD
+=================================================== */
+
+.study-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:35px;
+}
+
+.study-left{
+
+    flex:1;
+}
+
+.study-right{
+
+    width:240px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+/* ===================================================
+      COFFEE
+=================================================== */
+
+.study-right img{
+
+    width:180px;
+
+    animation:coffeeFloat 4s ease-in-out infinite;
+
+    filter:drop-shadow(
+        0 15px 20px rgba(0,0,0,.12)
+    );
+}
+
+@keyframes coffeeFloat{
+
+    0%{
+
+        transform:translateY(0);
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+    }
+
+    100%{
+
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ===================================================
+      INPUTS
+=================================================== */
+
+.input-group{
+
+    margin-bottom:22px;
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#574a82;
+}
+
+.input-group input,
+.input-group select{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#f5f2ff;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+
+    outline:none;
+
+    background:white;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(125,103,232,.15);
+}
+/* ===================================================
+   PROGRESS CARD
+=================================================== */
+
+.progress-card .stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+}
+
+.stat-box{
+
+    background:#f7f4ff;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.stat-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.45);
+
+    right:-45px;
+    top:-45px;
+}
+
+.stat-box:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 35px rgba(114,87,235,.12);
+}
+
+.stat-box h3{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:34px;
+
+    color:#6d55da;
+
+    margin-bottom:6px;
+}
+
+.stat-box p{
+
+    color:#857da4;
+
+    font-size:14px;
+}
+
+
+
+/* ===================================================
+   RECENT SESSIONS
+=================================================== */
+
+.sessions-card .session{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #efecfb;
+
+    transition:.25s;
+}
+
+.sessions-card .session:last-child{
+
+    border:none;
+}
+
+.sessions-card .session:hover{
+
+    transform:translateX(6px);
+}
+
+.session strong{
+
+    display:block;
+
+    font-size:17px;
+
+    color:#4b3f72;
+}
+
+.session p{
+
+    color:#928aac;
+
+    font-size:14px;
+
+    margin-top:5px;
+}
+
+.session span{
+
+    background:#efe8ff;
+
+    color:#694fd6;
+
+    padding:8px 15px;
+
+    border-radius:18px;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+
+
+/* ===================================================
+   QUOTE CARD
+=================================================== */
+
+.quote-card{
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #faf8ff,
+    #efe7ff);
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.quote-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.18;
+
+    top:-90px;
+    right:-70px;
+}
+
+.quote-card img{
+
+    width:170px;
+
+    margin-bottom:20px;
+
+    animation:quoteFloat 5s ease-in-out infinite;
+}
+
+@keyframes quoteFloat{
+
+    0%{
+
+        transform:translateY(0);
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+    }
+
+    100%{
+
+        transform:translateY(0);
+    }
+}
+
+.quote-card blockquote{
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:25px;
+
+    line-height:1.5;
+
+    color:#574a82;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+
+/* ===================================================
+   CUSTOM SCROLLBAR
+=================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#cfc2ff;
+
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#b7a7ff;
+}
+
+
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media(max-width:1200px){
+
+    .content-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .right-column{
+
+        width:100%;
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .container{
+
+        flex-direction:column;
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        border-right:none;
+
+        border-bottom:1px solid #ece7ff;
+    }
+
+    nav{
+
+        flex-direction:row;
+
+        flex-wrap:wrap;
+    }
+
+    .study-card{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .study-right{
+
+        width:100%;
+    }
+
+    .study-right img{
+
+        width:160px;
+    }
+
+    .timer-wrapper{
+
+        width:300px;
+        height:300px;
+    }
+
+    .progress-ring{
+
+        width:300px;
+        height:300px;
+    }
+
+    #timer{
+
+        font-size:64px;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .timer-buttons{
+
+        flex-direction:column;
+    }
+
+    .timer-buttons button{
+
+        width:100%;
+    }
+
+    .timer-tabs{
+
+        flex-direction:column;
+    }
+
+    .header h1{
+
+        font-size:44px;
+    }
+
+    .card{
+
+        padding:22px;
+    }
+
+    .sticky-note{
+
+        display:none;
+    }
+
+}
+
+
+
+/* ===================================================
+   LITTLE DETAILS
+=================================================== */
+
+button{
+
+    font-family:'Poppins',sans-serif;
+}
+
+input,
+select{
+
+    font-family:'Poppins',sans-serif;
+}
+
+img{
+
+    user-select:none;
+}
+
+::selection{
+
+    background:#d7c8ff;
+    color:#43376d;
+}
+.sidebar-image{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.sidebar-image img{
+
+    width:140px;
+
+    animation:floatCoffee 4s ease-in-out infinite;
+}
