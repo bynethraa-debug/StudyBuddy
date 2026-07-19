@@ -604,6 +604,9 @@ def delete_planner_task(id):
     conn.close()
 
     return redirect("/planner")
+@app.route("/timer")
+def timer():
+    return render_template("timer.html")
 # =====================================================
 # RUN APP
 # =====================================================
