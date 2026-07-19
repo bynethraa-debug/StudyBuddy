@@ -189,3 +189,213 @@
                         </button>
 
                     </div>
+
+                    
+<!-- ================= TIMER DISPLAY ================= -->
+
+<div class="timer-content">
+
+    <div class="timer-decoration stars">
+        ✦ ✧
+    </div>
+
+    <div class="timer-decoration hearts">
+        ♡ ♡
+    </div>
+
+    <div class="timer-circle">
+
+        <div class="progress-ring">
+
+            <div class="timer-inner">
+
+                <img
+                    src="{{ url_for('static', filename='images/plant.png') }}"
+                    alt="Plant"
+                    class="timer-icon">
+
+                <p class="timer-label">
+
+                    Study Time
+
+                </p>
+
+                <h2 id="timer">
+
+                    25:00
+
+                </h2>
+
+                <div class="pomodoro-count">
+
+                    🌿 Pomodoro 1 / 4
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= BUTTONS ================= -->
+
+    <div class="timer-buttons">
+
+        <button id="startBtn" class="primary-btn">
+
+            <i class="fa-solid fa-play"></i>
+
+            Start
+
+        </button>
+
+        <button id="pauseBtn" class="secondary-btn">
+
+            <i class="fa-solid fa-pause"></i>
+
+            Pause
+
+        </button>
+
+        <button id="resetBtn" class="secondary-btn">
+
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+
+            Reset
+
+        </button>
+
+    </div>
+
+    <!-- ================= DAILY GOAL ================= -->
+
+    <div class="goal-banner">
+
+        <div class="goal-left">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>
+
+                Complete 4 Pomodoros to unlock a long break!
+
+            </span>
+
+        </div>
+
+        <button>
+
+            <i class="fa-regular fa-heart"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ================= SESSION HISTORY ================= -->
+
+<div class="history-card">
+
+    <div class="card-header">
+
+        <h3>
+
+            Session History
+
+        </h3>
+
+        <a href="#">
+
+            View All
+
+        </a>
+
+    </div>
+
+    <div class="history-list">
+
+        <div class="history-item">
+
+            <div class="history-left">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <div>
+
+                    <h4>Session 1</h4>
+
+                    <span>10:00 AM - 10:25 AM</span>
+
+                </div>
+
+            </div>
+
+            <div class="history-right">
+
+                <span class="subject physics">
+
+                    Physics
+
+                </span>
+
+                <span>
+
+                    25 min
+
+                </span>
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+        </div>
+
+        <div class="history-item">
+
+            <div class="history-left">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <div>
+
+                    <h4>Session 2</h4>
+
+                    <span>11:00 AM - 11:25 AM</span>
+
+                </div>
+
+            </div>
+
+            <div class="history-right">
+
+                <span class="subject maths">
+
+                    Maths
+
+                </span>
+
+                <span>
+
+                    25 min
+
+                </span>
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ================= RIGHT COLUMN ================= -->
+
+<div class="right-column">
