@@ -399,3 +399,220 @@
 <!-- ================= RIGHT COLUMN ================= -->
 
 <div class="right-column">
+<!-- ================= STUDY SETUP CARD ================= -->
+
+<div class="study-card">
+
+    <div class="card-decoration">
+        🖇️
+    </div>
+
+    <h3>
+
+        <i class="fa-solid fa-book-open"></i>
+
+        What are you studying?
+
+    </h3>
+
+    <input
+        type="text"
+        placeholder="e.g. Physics Chapter 5">
+
+    <!-- ================= CATEGORY ================= -->
+
+    <h4>Category</h4>
+
+    <div class="category-grid">
+
+        <button class="active">
+
+            <i class="fa-solid fa-cube"></i>
+
+            Academics
+
+        </button>
+
+        <button>
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+            Coding
+
+        </button>
+
+        <button>
+
+            <i class="fa-solid fa-palette"></i>
+
+            Creative
+
+        </button>
+
+        <button>
+
+            <i class="fa-solid fa-ellipsis"></i>
+
+            Other
+
+        </button>
+
+    </div>
+
+    <!-- ================= MOOD ================= -->
+
+    <h4>Mode</h4>
+
+    <div class="mood-grid">
+
+        <button class="active">😊</button>
+
+        <button>🙂</button>
+
+        <button>😐</button>
+
+        <button>😔</button>
+
+        <button>🔥</button>
+
+    </div>
+
+    <!-- ================= MUSIC ================= -->
+
+    <div class="audio-grid">
+
+        <div class="select-box">
+
+            <label>
+
+                <i class="fa-solid fa-music"></i>
+
+                Background Music
+
+            </label>
+
+            <select>
+
+                <option>Lo-fi Beats</option>
+
+                <option>Piano</option>
+
+                <option>Jazz</option>
+
+                <option>Classical</option>
+
+            </select>
+
+        </div>
+
+        <div class="select-box">
+
+            <label>
+
+                <i class="fa-solid fa-water"></i>
+
+                Ambient Sound
+
+            </label>
+
+            <select>
+
+                <option>Rain</option>
+
+                <option>Ocean</option>
+
+                <option>Forest</option>
+
+                <option>Café</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= TODAY'S SESSIONS ================= -->
+
+<div class="stats-card">
+
+    <div class="card-header">
+
+        <h3>
+
+            Today's Sessions
+
+        </h3>
+
+        <a href="#">
+
+            View all
+
+        </a>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <h2>2</h2>
+
+            <span>Completed</span>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>50</h2>
+
+            <span>Minutes</span>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>1</h2>
+
+            <span>Day Streak</span>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>3</h2>
+
+            <span>Tasks Done</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= MOTIVATION ================= -->
+
+<div class="motivation-card">
+
+    <div class="quote">
+
+        <h2>
+
+            You don't have to be perfect,
+
+            just be consistent.
+
+        </h2>
+
+    </div>
+
+    <div class="motivation-image">
+
+        <img
+            src="{{ url_for('static', filename='images/studying-girl.png') }}"
+            alt="Studying Girl">
+
+    </div>
+
+</div>
