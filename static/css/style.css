@@ -2153,3 +2153,63 @@ transform:scale(1.2);
 }
 
 }
+```css
+/* ================= ACCOUNT BUTTON ================= */
+
+.account-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.account-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.75);
+    color: #40334d;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.account-button:hover {
+    transform: translateY(-2px);
+    background: #e9dafa;
+    box-shadow: 0 5px 15px rgba(50, 30, 70, 0.12);
+}
+
+.account-icon {
+    font-size: 18px;
+}
+
+.account-arrow {
+    font-size: 16px;
+}
+
+/* ACCOUNT BUTTON */
+
+.account-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 25px;
+    background: #eee2fa;
+    color: #674b88;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.account-button:hover {
+    background: #dfc9f5;
+    transform: translateY(-2px);
+}

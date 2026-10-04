@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyBuddy | Welcome</title>
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/login.css') }}"
+  >
+</head>
+
+<body>
+  <main class="page">
+
+    <section class="login-card">
+
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <span>StudyBuddy</span>
+      </div>
+
+      <div class="welcome">
+        <p class="eyebrow">YOUR STUDY SPACE</p>
+        <h1 id="formTitle">Welcome back!</h1>
+        <p id="formSubtitle">
+          Log in to continue your learning journey.
+        </p>
+      </div>
+
+      <div class="tabs">
+        <button
+          type="button"
+          class="tab active"
+          id="loginTab"
+        >
+          Log in
+        </button>
+
+        <button
+          type="button"
+          class="tab"
+          id="signupTab"
+        >
+          Sign up
+        </button>
+      </div>
+
+      <form id="authForm">
+
+        <div class="field" id="nameField" hidden>
+          <label for="name">Your name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Enter your name"
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="At least 8 characters"
+            minlength="8"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <div class="forgot-row" id="forgotRow">
+          <button type="button" id="forgotBtn">
+            Forgot password?
+          </button>
+        </div>
+
+        <p
+          id="message"
+          class="message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <button
+          class="submit-btn"
+          id="submitBtn"
+          type="submit"
+        >
+          Log in <span>→</span>
+        </button>
+
+      </form>
+
+      <p class="switch-text" id="switchText">
+        New to StudyBuddy?
+        <button type="button" id="switchBtn">
+          Create an account
+        </button>
+      </p>
+
+      <div class="bottom-note">
+        <span>✧</span> Small steps. Big progress.
+      </div>
+
+    </section>
+
+    <aside class="side-panel">
+
+      <div class="sparkle sparkle-one">✦</div>
+
+      <div class="illustration">
+        <div class="sun"></div>
+        <div class="book book-back"></div>
+
+        <div class="book book-front">
+          <span>YOUR</span>
+          <strong>next chapter</strong>
+          <span>STARTS HERE</span>
+        </div>
+
+        <div class="plant">✿</div>
+      </div>
+
+      <p class="side-label">FOCUS · LEARN · GROW</p>
+
+      <h2>
+        Your goals deserve<br>
+        your attention.
+      </h2>
+
+      <p>
+        Make time for what matters, one session at a time.
+      </p>
+
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+

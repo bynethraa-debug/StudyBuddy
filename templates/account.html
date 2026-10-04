@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | StudyBuddy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background: #f8f4fc;
+            color: #392c4b;
+        }
+
+        .account-page {
+            max-width: 950px;
+            margin: auto;
+            padding: 35px 24px 60px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: 800;
+            color: #674b88;
+            text-decoration: none;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #674b88;
+            background: white;
+            border: 1px solid #e8dff1;
+            padding: 10px 17px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            background: #eee3fa;
+        }
+
+        .welcome {
+            margin-bottom: 25px;
+        }
+
+        .welcome h1 {
+            font-size: clamp(28px, 5vw, 38px);
+            margin: 0 0 8px;
+        }
+
+        .welcome p {
+            color: #857991;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .account-card {
+            background: white;
+            border: 1px solid #eee5f5;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 12px 35px rgba(70, 42, 95, 0.07);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #f0eaf5;
+        }
+
+        .avatar {
+            width: 76px;
+            height: 76px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #eee2fa;
+            color: #76539c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .profile h2 {
+            margin: 0 0 5px;
+            font-size: 23px;
+        }
+
+        .profile p {
+            margin: 0;
+            color: #8b8095;
+            overflow-wrap: anywhere;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin: 27px 0 16px;
+        }
+
+        .detail {
+            background: #faf7fd;
+            border: 1px solid #f0e8f7;
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+        }
+
+        .detail-label {
+            color: #8c7c9b;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 16px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .logout-button {
+            border: none;
+            background: #76539c;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 13px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .logout-button:hover {
+            background: #5c3d80;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .account-page {
+                padding: 22px 15px 40px;
+            }
+
+            .account-card {
+                padding: 23px 18px;
+            }
+
+            .profile {
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            .avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="account-page">
+
+        <header class="topbar">
+            <a href="/materials" class="brand">StudyBuddy ✦</a>
+            <a href="/materials" class="back-button">← Dashboard</a>
+        </header>
+
+        <section class="welcome">
+            <h1>My Account 💜</h1>
+            <p>Manage and view your personal account details.</p>
+        </section>
+
+        <section class="account-card">
+
+            <div class="profile">
+                <div class="avatar">
+                    {{ user["name"][0]|upper }}
+                </div>
+
+                <div>
+                    <h2>{{ user["name"] }}</h2>
+                    <p>{{ user["email"] }}</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">Personal Information</h3>
+
+            <div class="detail">
+                <div class="detail-label">Full Name</div>
+                <div class="detail-value">{{ user["name"] }}</div>
+            </div>
+
+            <div class="detail">
+                <div class="detail-label">Email Address</div>
+                <div class="detail-value">{{ user["email"] }}</div>
+            </div>
+
+            <div class="actions">
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">
+                        ↪ Log Out
+                    </button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>

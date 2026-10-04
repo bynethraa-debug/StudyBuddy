@@ -1,126 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Study Materials</title>
-
-<link rel="stylesheet"
-href="{{ url_for('static', filename='css/materials.css') }}">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Materials</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/materials.css') }}">
 </head>
-
 <body>
-
 <div class="page">
 
-<a href="/" class="back-btn">
-← Back to Dashboard
-</a>
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <a href="/" class="back-btn">← Back to Dashboard</a>
+        <a href="/account"
+           style="text-decoration:none; background:#eee6ff; color:#563b8e; padding:10px 18px; border-radius:12px; font-weight:600;">
+            ♙ My Account →
+        </a>
+    </div>
 
-<section class="hero">
+    <section class="hero">
+        <div class="hero-text">
+            <div class="sparkle">✦</div>
+            <h1>📚 Study Materials</h1>
+            <p>
+                Choose a subject to begin your study journey.
+                Browse notes, PDFs and resources organised neatly for every subject.
+            </p>
+        </div>
+        <div class="hero-image">
+            <img
+                src="{{ url_for('static', filename='images/materials.png') }}"
+                alt="Study Materials">
+        </div>
+    </section>
 
-<div class="hero-text">
+    <section class="subjects-grid">
+        {% for subject in subjects %}
+        {% set subject_name = subject["subject_name"] %}
 
-<div class="sparkle">✦</div>
+        <a href="/subject/{{ subject['id'] }}" class="subject-card">
 
-<h1>📚 Study Materials</h1>
+            <div class="tape
+                {% if subject_name == 'Computer Science' %}pink
+                {% elif subject_name == 'English' %}purple
+                {% elif subject_name == 'Maths' %}blue
+                {% elif subject_name == 'Physics' %}green
+                {% endif %}">
+            </div>
 
-<p>
+            {% if subject_name == "Chemistry" %}
+                <img src="{{ url_for('static', filename='images/chemistry.png') }}" alt="Chemistry">
+            {% elif subject_name == "Computer Science" %}
+                <img src="{{ url_for('static', filename='images/computer science.png') }}" alt="Computer Science">
+            {% elif subject_name == "English" %}
+                <img src="{{ url_for('static', filename='images/english.png') }}" alt="English">
+            {% elif subject_name == "Maths" %}
+                <img src="{{ url_for('static', filename='images/maths.jpeg') }}" alt="Maths">
+            {% elif subject_name == "Physics" %}
+                <img src="{{ url_for('static', filename='images/physics.png') }}" alt="Physics">
+            {% endif %}
 
-Choose a subject to begin your study journey.
-Browse notes, PDFs and resources organised neatly for every subject.
+            <h2>{{ subject_name }}</h2>
 
-</p>
+            <div class="underline
+                {% if subject_name == 'Computer Science' %}pink-line
+                {% elif subject_name == 'English' %}purple-line
+                {% elif subject_name == 'Maths' %}blue-line
+                {% elif subject_name == 'Physics' %}green-line
+                {% endif %}">
+            </div>
 
-</div>
-
-<div class="hero-image">
-
-<img
-src="{{ url_for('static', filename='images/materials.png') }}"
-alt="Study Materials">
-
-</div>
-
-</section>
-
-<section class="subjects-grid">
-
-{% for subject in subjects %}
-
-<a
-href="/subject/{{ subject['id'] }}"
-class="subject-card">
-
-<div class="tape
-{% if subject['subject_name']=="Computer Science" %}
-pink
-{% elif subject['subject_name']=="English" %}
-purple
-{% elif subject['subject_name']=="Maths" %}
-blue
-{% elif subject['subject_name']=="Physics" %}
-green
-{% endif %}
-"></div>
-
-{% if subject["subject_name"]=="Chemistry" %}
-
-<img
-src="{{ url_for('static', filename='images/chemistry.png') }}">
-
-{% elif subject["subject_name"]=="Computer Science" %}
-
-<img
-src="{{ url_for('static', filename='images/computer science.png') }}">
-
-{% elif subject["subject_name"]=="English" %}
-
-<img
-src="{{ url_for('static', filename='images/english.png') }}">
-
-{% elif subject["subject_name"]=="Maths" %}
-
-<img
-src="{{ url_for('static', filename='images/maths.jpeg') }}">
-
-{% elif subject["subject_name"]=="Physics" %}
-
-<img
-src="{{ url_for('static', filename='images/physics.png') }}">
-
-{% endif %}
-
-<h2>
-
-{{ subject["subject_name"] }}
-
-</h2>
-
-<div class="underline
-{% if subject['subject_name']=="Computer Science" %}
-pink-line
-{% elif subject['subject_name']=="English" %}
-purple-line
-{% elif subject['subject_name']=="Maths" %}
-blue-line
-{% elif subject['subject_name']=="Physics" %}
-green-line
-{% endif %}
-"></div>
-
-</a>
-
-{% endfor %}
-
-</section>
+        </a>
+        {% endfor %}
+    </section>
 
 </div>
-
 </body>
+</html>
 
-</html>^+```

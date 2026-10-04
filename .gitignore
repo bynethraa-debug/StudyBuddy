@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+*.db
+instance/
+.DS_Store
+*.zip
+app_backup.py
+app_copy.py
+StudyBuddy/
+StudyBuddy/
+/static/images/anything.jpg
+/static/images/skibidi.jpg
+/templates/hehe

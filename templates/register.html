@@ -1,0 +1,95 @@
+
+from flask import render_template, request, redirect, session
+from werkzeug.security import generate_password_hash, check_password_hash
+import sqlite3
+import os
+
+# Keep your existing Flask app = Flask(__name__) declaration.
+# Add a secret key if your app doesn't already have one.
+app.secret_key = os.environ.get("SECRET_KEY", "change-this-to-a-random-secret")
+
+AUTH_DB = "studybuddy_auth.db"
+
+
+def get_auth_db():
+    conn = sqlite3.connect(AUTH_DB)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_auth_db():
+    with get_auth_db() as conn:
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT UNIQUE NOT NULL,
+                password_hash TEXT NOT NULL
+            )
+        """)
+
+
+init_auth_db()
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = None
+
+    if request.method == "POST":
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "")
+
+        with get_auth_db() as conn:
+            user = conn.execute(
+                "SELECT * FROM users WHERE email = ?", (email,)
+            ).fetchone()
+
+        if user and check_password_hash(user["password_hash"], password):
+            session.clear()
+            session["user_id"] = user["id"]
+            session["user_email"] = user["email"]
+            return redirect("/materials")
+        else:
+            error = "Incorrect email or password. Please try again."
+
+    return render_template("login.html", error=error)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    error = None
+
+    if request.method == "POST":
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "")
+
+        if not email or not password:
+            error = "Please fill in all fields."
+        elif len(password) < 8:
+            error = "Password must be at least 8 characters."
+        else:
+            try:
+                with get_auth_db() as conn:
+                    conn.execute(
+                        "INSERT INTO users (email, password_hash) VALUES (?, ?)",
+                        (email, generate_password_hash(password))
+                    )
+                return redirect("/login")
+            except sqlite3.IntegrityError:
+                error = "An account with this email already exists."
+
+    return render_template("register.html", error=error)
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/login")
+
+
+@app.route("/forgot-password")
+def forgot_password():
+    return (
+        "Password recovery isn't set up yet. "
+        "Please contact the site administrator."
+    )

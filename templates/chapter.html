@@ -1,89 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>{{ chapter["chapter_name"] }}</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<style>
+<title>{{ book["book_name"] }}</title>
 
-body{
-
-    font-family:Georgia, serif;
-    background:#dfeaf8;
-    padding:40px;
-
-}
-
-.back{
-
-    text-decoration:none;
-    color:#173b78;
-    font-weight:bold;
-
-}
-
-h1{
-
-    text-align:center;
-    color:#173b78;
-
-}
-
-.resource{
-
-    background:white;
-
-    padding:20px;
-
-    border-radius:18px;
-
-    margin:20px auto;
-
-    max-width:700px;
-
-    box-shadow:0 6px 15px rgba(0,0,0,.08);
-
-}
-
-.resource a{
-
-    text-decoration:none;
-
-    color:#173b78;
-
-    font-size:22px;
-
-}
-
-.empty{
-
-    text-align:center;
-
-    color:gray;
-
-    font-size:20px;
-
-    margin-top:40px;
-
-}
-
-</style>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/chapters.css') }}">
 
 </head>
+
 <body>
 
 <div class="container">
 
 <a href="/book/{{ book['id'] }}" class="back">
-← Back to Books
+
+← Back
+
 </a>
 
 <section class="hero">
 
 <div class="hero-text">
 
-<div class="sparkle">✦</div>
+<div class="sparkle">
+
+✦
+
+</div>
 
 <h1>
 
@@ -93,35 +42,17 @@ h1{
 
 <p>
 
-Choose a chapter to continue studying.
+Choose a chapter to begin studying.
 
 </p>
 
 </div>
 
 <div class="hero-image">
+<img
+src="{{ url_for('static', filename='images/materials.png') }}"
+alt="Book">
 
-{% if subject["subject_name"]=="Chemistry" %}
-
-<img src="{{ url_for('static', filename='images/chemistry.png') }}">
-
-{% elif subject["subject_name"]=="Computer Science" %}
-
-<img src="{{ url_for('static', filename='images/computer science.png') }}">
-
-{% elif subject["subject_name"]=="English" %}
-
-<img src="{{ url_for('static', filename='images/english.png') }}">
-
-{% elif subject["subject_name"]=="Maths" %}
-
-<img src="{{ url_for('static', filename='images/maths.jpeg') }}">
-
-{% elif subject["subject_name"]=="Physics" %}
-
-<img src="{{ url_for('static', filename='images/physics.png') }}">
-
-{% endif %}
 
 </div>
 
@@ -133,47 +64,89 @@ Choose a chapter to continue studying.
 
 <section class="chapters-grid">
 
+{% if chapters %}
 
-{{<body>
+{% for chapter in chapters %}
 
-<a href="javascript:history.back()" class="back">
-← Back
-</a>
+<a
+href="/chapter/{{ chapter['id'] }}"
+class="chapter-card">
 
-<h1>
+<div class="tape"></div>
 
-📂 {{ chapter["chapter_name"] }}
+<div class="chapter-number">
 
-</h1>
-
-
-
-
-{% if resources %}
-
-{% for resource in resources %}
-
-<div class="resource">
-
-<a href="{{ resource['pdf_link'] }}" target="_blank">
-
-   📄 {{ resource["resource_name"] }}
-
-</a>
+{{ "%02d"|format(loop.index) }}
 
 </div>
+
+<div class="chapter-info">
+
+<h2>
+
+{{ chapter["chapter_name"] }}
+
+</h2>
+
+<div class="line"></div>
+
+<p>
+
+Open notes, questions and resources.
+
+</p>
+
+</div>
+
+<div class="chapter-icon">
+
+📖
+
+</div>
+
+<div class="arrow">
+
+➜
+
+</div>
+
+</a>
 
 {% endfor %}
 
 {% else %}
 
-<div class="empty">
+<div class="chapter-card">
 
-No resources have been added yet.
+<div class="chapter-info">
+
+<h2>
+
+No Chapters Found
+
+</h2>
+
+<p>
+
+No chapters have been added yet.
+
+</p>
+
+</div>
 
 </div>
 
 {% endif %}
+
+</section>
+
+<div class="doodle-star star1">✦</div>
+<div class="doodle-star star2">✧</div>
+
+<div class="squiggle left">〰</div>
+<div class="squiggle right">〰</div>
+
+</div>
 
 </body>
 
