@@ -1,14 +1,16 @@
 
+cat > .gitignore <<'EOF'
 __pycache__/
 *.py[cod]
 .env
 .venv/
 venv/
-database.db
 *.db
 instance/
 .DS_Store
 *.zip
 app_backup.py
-app_copy.py
+app copy.py
+StudyBuddy/
+EOF
 
