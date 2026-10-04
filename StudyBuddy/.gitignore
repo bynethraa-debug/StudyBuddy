@@ -5,5 +5,10 @@ __pycache__/
 .venv/
 venv/
 database.db
+*.db
 instance/
 .DS_Store
+*.zip
+app_backup.py
+app_copy.py
+
