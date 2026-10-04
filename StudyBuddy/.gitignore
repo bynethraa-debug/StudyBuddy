@@ -22,3 +22,5 @@ EOF
 git add .gitignore
 git add .
 
+
+printf '\n/static/images/anything.jpg\n/static/images/skibidi.jpg\n/templates/hehe\n' >> .gitignore
