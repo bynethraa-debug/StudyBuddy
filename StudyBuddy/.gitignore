@@ -14,3 +14,11 @@ app copy.py
 StudyBuddy/
 EOF
 
+cat >> .gitignore <<'EOF'
+static/images/anything.jpg
+static/images/skibidi.jpg
+templates/hehe
+EOF
+git add .gitignore
+git add .
+
